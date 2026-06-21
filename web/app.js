@@ -82,6 +82,7 @@ const I18N = {
     extras_note: 'Schattingen: btw 21% op uitgaven, verzekeringstaks 9,25%, ~8% federale belasting op je energiefactuur, pakje sigaretten €13 (~78%), ~€0,90 per liter brandstof, ~35% van je alcoholbudget.',
     tax_est: 'Geschatte personenbelasting', your_split: 'verdeeld over de begroting:',
     per_year: '/jaar', per_day: '/dag', billion: 'mld', million: 'mln',
+    contrib_year: 'Jouw bijdrage per jaar', contrib_day: 'Jouw bijdrage per dag',
     back_all: 'Alle thema’s', of_total: 'van de begroting', per_capita: 'per inwoner',
     cat_covers: 'Wat dit dekt', cat_depts: 'Waar dit naartoe gaat', cat_your: 'Jouw bijdrage hieraan',
     cat_your_note: 'Op basis van je inkomen en geschatte andere belastingen. Wijzig bij ‘Jij’.',
@@ -149,6 +150,7 @@ const I18N = {
     extras_note: 'Estimations : TVA 21 % sur les dépenses, taxe d’assurance 9,25 %, ~8 % de taxes fédérales sur l’énergie, paquet 13 € (~78 %), ~0,90 € par litre, ~35 % du budget alcool.',
     tax_est: 'Impôt estimé', your_split: 'réparti selon le budget :',
     per_year: '/an', per_day: '/jour', billion: 'mrd', million: 'mio',
+    contrib_year: 'Votre contribution par an', contrib_day: 'Votre contribution par jour',
     back_all: 'Tous les thèmes', of_total: 'du budget', per_capita: 'par habitant',
     cat_covers: 'Ce que ça couvre', cat_depts: 'Où va cet argent', cat_your: 'Votre contribution à ceci',
     cat_your_note: 'Sur base de votre revenu et des autres impôts estimés. Modifiable dans ‘Vous’.',
@@ -217,6 +219,7 @@ const I18N = {
     extras_note: 'Estimates: VAT 21% on spending, insurance tax 9.25%, ~8% federal tax on your energy bill, cigarette pack €13 (~78% tax), ~€0.90 per litre of fuel, ~35% of your alcohol budget.',
     tax_est: 'Estimated income tax', your_split: 'split across the budget:',
     per_year: '/year', per_day: '/day', billion: 'bn', million: 'm',
+    contrib_year: 'Your contribution per year', contrib_day: 'Your contribution per day',
     back_all: 'All themes', of_total: 'of the budget', per_capita: 'per resident',
     cat_covers: 'What it covers', cat_depts: 'Where it goes', cat_your: 'Your contribution to this',
     cat_your_note: 'Based on your income and estimated other taxes. Change it under ‘You’.',
@@ -479,9 +482,14 @@ function extraRow(k, lblKey, opt) {
   return `<div class="extra-item"><div class="extra-row">${head}${ctrl}</div><p class="extra-info" id="exinfo-${k}" hidden>${t('ex_info_' + k)}</p></div>`;
 }
 function viewYou() {
+  const tax = estimateTax(income) + extrasTotal();
   return `<section class="screen">
     <header class="screen-head"><h1>${t('you_h')}</h1><p class="sub">${t('you_sub')}</p></header>
     ${provBannerHtml()}
+    <div class="you-summary">
+      <div class="you-stat"><span class="you-stat-num" id="you-year">${fmtCur(tax)}</span><span class="you-stat-lbl">${t('contrib_year')}</span></div>
+      <div class="you-stat is-day"><span class="you-stat-num" id="you-day">${fmtCur(tax / 365, 2)}</span><span class="you-stat-lbl">${t('contrib_day')}</span></div>
+    </div>
     <div class="card">
       <label class="db-label" for="income">${t('db_label')}</label>
       <div class="db-input"><input type="range" id="income" min="0" max="120000" step="1000" value="${income}" aria-describedby="income-out"><output id="income-out" for="income">${fmtCur(income)}</output></div>
@@ -646,6 +654,8 @@ function mountYou() {
 }
 function renderBreakdown() {
   const tot = cur().tree.amount, inc = estimateTax(income), ex = extrasTotal(), tax = inc + ex;
+  const yEl = $('#you-year'); if (yEl) yEl.textContent = fmtCur(tax);
+  const dEl = $('#you-day'); if (dEl) dEl.textContent = fmtCur(tax / 365, 2);
   $('#db-tax').innerHTML = `${t('total_contribution')}: <strong>${fmtCur(tax)}</strong> <small>(${t('of_which_income')} ${fmtCur(inc)} + ${t('of_which_indirect')} ${fmtCur(ex)})</small> — ${t('your_split')}`;
   const box = $('#db-breakdown'); box.innerHTML = '';
   cur().tree.children.slice().sort((a, b) => b.amount - a.amount).forEach(fn => {
