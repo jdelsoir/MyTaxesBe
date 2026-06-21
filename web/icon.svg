@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect x="0" y="0" width="341.34" height="1024" fill="#1a1a1a"/>
+  <rect x="341.33" y="0" width="341.34" height="1024" fill="#fdd116"/>
+  <rect x="682.66" y="0" width="341.34" height="1024" fill="#ef3340"/>
+  <circle cx="512" cy="512" r="312" fill="#ffffff"/>
+  <text x="512" y="512" font-family="Helvetica, Arial, sans-serif" font-weight="bold"
+        font-size="470" fill="#1a1a1a" text-anchor="middle" dominant-baseline="central">€</text>
+</svg>

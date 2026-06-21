@@ -4,6 +4,9 @@
 # Node
 node_modules/
 
+# Generated Pages site (rebuilt in CI from web/standalone.html + PWA assets)
+web/dist/
+
 # Local Claude config (not for publishing)
 .claude/
 

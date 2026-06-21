@@ -1,0 +1,20 @@
+{
+  "name": "MyTaxesBe — Where do my taxes go?",
+  "short_name": "MyTaxesBe",
+  "description": "See where Belgian tax money goes. Open data, federal budget, personal contribution. NL/FR/EN.",
+  "lang": "nl",
+  "dir": "ltr",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#ffffff",
+  "background_color": "#f6f5f1",
+  "categories": ["government", "finance", "education"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

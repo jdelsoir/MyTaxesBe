@@ -22,16 +22,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Build self-contained app
-        run: node build-artifact.mjs
-        working-directory: web
-      - name: Assemble site
+      - name: Build self-contained app + PWA site
         run: |
-          mkdir -p _site
-          cp web/standalone.html _site/index.html
+          node build-artifact.mjs
+          node build-site.mjs
+        working-directory: web
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: web/dist
 
   deploy:
     needs: build
