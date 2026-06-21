@@ -1,0 +1,1 @@
+{"name":"taxes-go-pipeline","version":"0.0.1","type":"module","private":true,"dependencies":{"xlsx":"^0.18.5"}}

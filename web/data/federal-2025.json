@@ -1,0 +1,478 @@
+{
+  "year": 2025,
+  "level": "federal",
+  "currency": "EUR",
+  "amount_basis": "payment appropriations (CL/VeK), financing operations excluded",
+  "total_spending": 24318727000,
+  "gross_before_exclusions": 49878122000,
+  "financing_excluded": 25559395000,
+  "provisional": true,
+  "source": "data.gov.be fpsbosa-bb-budget-2025 (CC0)",
+  "generated_from": "exp_2025_c7.xlsx",
+  "sheet_used": "BudgetOnline",
+  "tree": {
+    "id": "root",
+    "label": {
+      "nl": "Federale uitgaven",
+      "fr": "Dépenses fédérales",
+      "en": "Federal spending"
+    },
+    "amount": 24318727000,
+    "children": [
+      {
+        "id": "social_protection",
+        "label": {
+          "nl": "Sociale bescherming",
+          "fr": "Protection sociale",
+          "en": "Social protection"
+        },
+        "amount": 8712489000,
+        "children": [
+          {
+            "label": {
+              "nl": "FOD SOCIALE ZEKERHEID",
+              "fr": "SPF SÉCURITÉ SOCIALE"
+            },
+            "amount": 8198491000
+          },
+          {
+            "label": {
+              "nl": "MAATSCHAPPELIJKE INTEGRATIE",
+              "fr": "INTÉGRATION SOCIALE"
+            },
+            "amount": 513998000
+          }
+        ]
+      },
+      {
+        "id": "regions_communities",
+        "label": {
+          "nl": "Gewesten & Gemeenschappen",
+          "fr": "Régions & Communautés",
+          "en": "Regions & Communities"
+        },
+        "amount": 4236293000,
+        "children": [
+          {
+            "label": {
+              "nl": "Vlaamse Gemeenschap",
+              "fr": "Communauté flamande"
+            },
+            "amount": 2523129000
+          },
+          {
+            "label": {
+              "nl": "Franse Gemeenschap",
+              "fr": "Communauté française"
+            },
+            "amount": 1275942000
+          },
+          {
+            "label": {
+              "nl": "Gemeenschappelijke Gemeenschapscommissie",
+              "fr": "Commission communautaire commune"
+            },
+            "amount": 406392000
+          },
+          {
+            "label": {
+              "nl": "Duitstalige Gemeenschap",
+              "fr": "Communauté germanophone"
+            },
+            "amount": 30830000
+          }
+        ]
+      },
+      {
+        "id": "debt_interest",
+        "label": {
+          "nl": "Rente op de staatsschuld",
+          "fr": "Intérêts de la dette",
+          "en": "Debt interest"
+        },
+        "amount": 2859925000,
+        "children": [
+          {
+            "label": {
+              "nl": "RIJKSSCHULD",
+              "fr": "DETTE PUBLIQUE"
+            },
+            "amount": 2859925000
+          }
+        ]
+      },
+      {
+        "id": "defense",
+        "label": {
+          "nl": "Defensie",
+          "fr": "Défense",
+          "en": "Defence"
+        },
+        "amount": 1590569000,
+        "children": [
+          {
+            "label": {
+              "nl": "LANDSVERDEDIGING",
+              "fr": "DEFENSE NATIONALE"
+            },
+            "amount": 1590569000
+          }
+        ]
+      },
+      {
+        "id": "foreign_eu",
+        "label": {
+          "nl": "Buitenland & EU",
+          "fr": "Affaires étrangères & UE",
+          "en": "Foreign Affairs & EU"
+        },
+        "amount": 1555364000,
+        "children": [
+          {
+            "label": {
+              "nl": "EUROPESE UNIE",
+              "fr": "UNION EUROPEENNE"
+            },
+            "amount": 1095586000
+          },
+          {
+            "label": {
+              "nl": "BUIT. ZAKEN & ONTW.-SAMENWERK.",
+              "fr": "AFFAIRES ÉTRANGÈRES ET COOP."
+            },
+            "amount": 459778000
+          }
+        ]
+      },
+      {
+        "id": "finance_admin",
+        "label": {
+          "nl": "Financiën & Overheid",
+          "fr": "Finances & Administration",
+          "en": "Finance & Administration"
+        },
+        "amount": 1380162000,
+        "children": [
+          {
+            "label": {
+              "nl": "FINANCIEN",
+              "fr": "FINANCES"
+            },
+            "amount": 564403000
+          },
+          {
+            "label": {
+              "nl": "FOD BOSA",
+              "fr": "SPF BOSA"
+            },
+            "amount": 559275000
+          },
+          {
+            "label": {
+              "nl": "REGIE DER GEBOUWEN + OP. AMBT",
+              "fr": "RÉGIE DES BÂTIMENTS"
+            },
+            "amount": 256484000
+          }
+        ]
+      },
+      {
+        "id": "security_interior",
+        "label": {
+          "nl": "Veiligheid & Binnenland",
+          "fr": "Sécurité & Intérieur",
+          "en": "Security & Interior"
+        },
+        "amount": 1243733000,
+        "children": [
+          {
+            "label": {
+              "nl": "FED. POLITIE & GEINT. WERKING",
+              "fr": "POLICE FED. & FONCT. INTÉGRÉ"
+            },
+            "amount": 650876000
+          },
+          {
+            "label": {
+              "nl": "BINNENLANDSE ZAKEN",
+              "fr": "INTÉRIEUR"
+            },
+            "amount": 592857000
+          }
+        ]
+      },
+      {
+        "id": "mobility",
+        "label": {
+          "nl": "Mobiliteit & Vervoer",
+          "fr": "Mobilité & Transports",
+          "en": "Mobility & Transport"
+        },
+        "amount": 1220511000,
+        "children": [
+          {
+            "label": {
+              "nl": "FOD MOBILITEIT EN VERVOER",
+              "fr": "SPF MOBILITÉ ET TRANSPORTS"
+            },
+            "amount": 1220511000
+          }
+        ]
+      },
+      {
+        "id": "justice",
+        "label": {
+          "nl": "Justitie",
+          "fr": "Justice",
+          "en": "Justice"
+        },
+        "amount": 693212000,
+        "children": [
+          {
+            "label": {
+              "nl": "JUSTITIE",
+              "fr": "JUSTICE"
+            },
+            "amount": 693212000
+          }
+        ]
+      },
+      {
+        "id": "economy_work_science",
+        "label": {
+          "nl": "Economie, Werk & Wetenschap",
+          "fr": "Économie, Emploi & Science",
+          "en": "Economy, Work & Science"
+        },
+        "amount": 368118000,
+        "children": [
+          {
+            "label": {
+              "nl": "WETENSCHAPSBELEID",
+              "fr": "POLITIQUE SCIENTIFIQUE"
+            },
+            "amount": 152623000
+          },
+          {
+            "label": {
+              "nl": "ECONOMIE",
+              "fr": "ECONOMIE"
+            },
+            "amount": 144024000
+          },
+          {
+            "label": {
+              "nl": "WERKGELEGENHEID, ARBEID & S.O.",
+              "fr": "EMPLOI, TRAVAIL & CONC. SOC."
+            },
+            "amount": 71471000
+          }
+        ]
+      },
+      {
+        "id": "health",
+        "label": {
+          "nl": "Volksgezondheid",
+          "fr": "Santé publique",
+          "en": "Health"
+        },
+        "amount": 292568000,
+        "children": [
+          {
+            "label": {
+              "nl": "VOLKSGEZONDHEID",
+              "fr": "SANTÉ PUBLIQUE"
+            },
+            "amount": 292568000
+          }
+        ]
+      },
+      {
+        "id": "democratic_institutions",
+        "label": {
+          "nl": "Democratische instellingen",
+          "fr": "Institutions démocratiques",
+          "en": "Democratic Institutions"
+        },
+        "amount": 165783000,
+        "children": [
+          {
+            "label": {
+              "nl": "Kamer volksvertegenwoordigers",
+              "fr": "Chambre des représentants"
+            },
+            "amount": 46256000
+          },
+          {
+            "label": {
+              "nl": "KANSELARIJ",
+              "fr": "CHANCELLERIE"
+            },
+            "amount": 41223000
+          },
+          {
+            "label": {
+              "nl": "Rekenhof",
+              "fr": "Cour des comptes"
+            },
+            "amount": 16141000
+          },
+          {
+            "label": {
+              "nl": "Senaat",
+              "fr": "Sénat"
+            },
+            "amount": 10968000
+          },
+          {
+            "label": {
+              "nl": "Onafhankelijke organen.",
+              "fr": "Organes indépendants."
+            },
+            "amount": 9556000
+          },
+          {
+            "label": {
+              "nl": "Financ. politieke partijen",
+              "fr": "Financ. partis politiques"
+            },
+            "amount": 9308000
+          },
+          {
+            "label": {
+              "nl": "Activiteiten van de Koninklijke Familie",
+              "fr": "Activités de la Famille Royale"
+            },
+            "amount": 6867000
+          },
+          {
+            "label": {
+              "nl": "Civiele Lijst",
+              "fr": "Liste civile"
+            },
+            "amount": 3799000
+          },
+          {
+            "label": {
+              "nl": "Grondwettelijk Hof",
+              "fr": "Cour constitutionnelle"
+            },
+            "amount": 3394000
+          },
+          {
+            "label": {
+              "nl": "Comité P",
+              "fr": "Comité P"
+            },
+            "amount": 3199000
+          },
+          {
+            "label": {
+              "nl": "Gegenvensbeschermingsautoriteit",
+              "fr": "Autorité protection données"
+            },
+            "amount": 3168000
+          },
+          {
+            "label": {
+              "nl": "Bijzondere kredietlijn Forum",
+              "fr": "Ligne de crédit spéciale Forum"
+            },
+            "amount": 2750000
+          },
+          {
+            "label": {
+              "nl": "College federale ombudsmannen",
+              "fr": "Collège médiateurs fédéraux"
+            },
+            "amount": 1730000
+          },
+          {
+            "label": {
+              "nl": "Hoge Raad voor de Justitie",
+              "fr": "Conseil sup. de la Justice"
+            },
+            "amount": 1729000
+          },
+          {
+            "label": {
+              "nl": "Centrale Raad voor het Gevangeniswezen",
+              "fr": "Conseil central de surveillance pénitentiaire"
+            },
+            "amount": 1430000
+          },
+          {
+            "label": {
+              "nl": "Comité I",
+              "fr": "Comité R"
+            },
+            "amount": 1295000
+          },
+          {
+            "label": {
+              "nl": "Instituut rechten van de mens",
+              "fr": "Institut des droits humains"
+            },
+            "amount": 943000
+          },
+          {
+            "label": {
+              "nl": "Huis der Parlementsleden",
+              "fr": "Maison des parlementaires"
+            },
+            "amount": 500000
+          },
+          {
+            "label": {
+              "nl": "Controleorgaan op de politionele informatie",
+              "fr": "Organe de contrôle de l'information policière"
+            },
+            "amount": 351000
+          },
+          {
+            "label": {
+              "nl": "Protocol met de regering",
+              "fr": "Protocole avec le gouvernement"
+            },
+            "amount": 300000
+          },
+          {
+            "label": {
+              "nl": "Dotatie aan Koning Albert II",
+              "fr": "Dotation au Roi Albert II"
+            },
+            "amount": 297000
+          },
+          {
+            "label": {
+              "nl": "Commissie specifieke methoden (C-BIM)",
+              "fr": "Commission méthodes spécififiques (C-BIM)"
+            },
+            "amount": 194000
+          },
+          {
+            "label": {
+              "nl": "Benoemingscommissies notariaat",
+              "fr": "Comm. nomination du notariat"
+            },
+            "amount": 181000
+          },
+          {
+            "label": {
+              "nl": "Dotatie aan Prinses Astrid",
+              "fr": "Dotation à la Princesse Astrid"
+            },
+            "amount": 104000
+          },
+          {
+            "label": {
+              "nl": "Dotatie aan Prins Laurent",
+              "fr": "Dotation au Prince Laurent"
+            },
+            "amount": 100000
+          }
+        ]
+      }
+    ]
+  }
+}

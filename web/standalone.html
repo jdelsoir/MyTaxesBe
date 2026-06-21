@@ -1,0 +1,1830 @@
+<title>Waar gaat mijn belastinggeld naartoe? — België</title>
+<style>/* ============ tokens ============ */
+:root {
+  --be-black: #1a1a1a; --be-black-true: #000; --be-gold: #fdd116; --be-gold-deep: #c79100;
+  --be-red: #ef3340; --be-red-deep: #c8102e;
+  --ground: #ffffff; --paper: #f6f5f1; --panel: #fbfaf7; --ink: #1a1a1a; --muted: #5d5d5d;
+  --line: #e6e4dd; --focus: #2a6cf0;
+  --radius: 16px; --shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 30px rgba(0,0,0,.05);
+  --maxw: 980px; --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--font); color: var(--ink); background: var(--paper); line-height: 1.55; font-size: 17px; -webkit-font-smoothing: antialiased; padding-bottom: 72px; }
+h1, h2, h3 { line-height: 1.12; letter-spacing: -0.02em; margin: 0; }
+button, input, output { font: inherit; }
+button { cursor: pointer; }
+a { color: var(--be-red-deep); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip-link { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: 10px 16px; z-index: 60; border-radius: 0 0 8px 0; }
+.skip-link:focus { left: 0; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 5px; }
+
+/* ============ app bar ============ */
+.appbar { position: sticky; top: 0; z-index: 40; background: var(--ground); border-bottom: 1px solid var(--line); }
+.appbar-inner { max-width: var(--maxw); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; }
+.brand { display: flex; align-items: center; gap: 10px; background: none; border: none; padding: 0; min-width: 0; color: inherit; }
+.flag { width: 26px; height: 19px; flex: 0 0 auto; border-radius: 3px; background: linear-gradient(90deg, var(--be-black-true) 0 33.33%, var(--be-gold) 33.33% 66.66%, var(--be-red) 66.66% 100%); box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+.brand-title { font-weight: 800; font-size: .92rem; letter-spacing: -0.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.appbar-tools { display: flex; align-items: center; gap: 10px; flex: 1 1 auto; flex-wrap: wrap; justify-content: flex-end; min-width: 0; }
+.yearseg { display: inline-flex; border: 1.5px solid var(--line); border-radius: 10px; overflow: hidden; }
+.yearseg button { border: none; background: #fff; color: var(--muted); padding: 6px 9px; font-weight: 700; font-size: .8rem; border-right: 1px solid var(--line); position: relative; }
+.yearseg button:last-child { border-right: none; }
+.yearseg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.seg-badge { color: #a87a00; font-weight: 900; }
+.yearseg button[aria-pressed="true"] .seg-badge { color: var(--be-gold); }
+.lang { display: flex; gap: 4px; }
+.lang button { border: 1.5px solid var(--line); background: #fff; color: var(--muted); padding: 6px 8px; border-radius: 8px; font-weight: 700; font-size: .78rem; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.tricolor { display: flex; height: 4px; }
+.tricolor i { flex: 1; }
+.tricolor i:nth-child(1){ background: var(--be-black-true); }
+.tricolor i:nth-child(2){ background: var(--be-gold); }
+.tricolor i:nth-child(3){ background: var(--be-red); }
+
+/* ============ tab bar (bottom on mobile) ============ */
+.tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; display: flex; justify-content: space-around; background: var(--ground); border-top: 1px solid var(--line); padding: 6px max(8px, env(safe-area-inset-left)) calc(6px + env(safe-area-inset-bottom)); }
+.tabbar a { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 3px; min-height: 52px; justify-content: center; text-decoration: none; color: var(--muted); font-size: .66rem; font-weight: 700; border-radius: 10px; }
+.tabbar a .ic { width: 22px; height: 22px; }
+.tabbar a span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tabbar a[aria-current="page"] { color: var(--be-red-deep); background: #fdecec; }
+
+/* ============ screens ============ */
+#view { max-width: var(--maxw); margin: 0 auto; padding: 18px 16px 28px; outline: none; }
+.screen { display: flex; flex-direction: column; gap: 18px; }
+.screen-head h1 { font-size: clamp(1.7rem, 4.5vw, 2.4rem); }
+.sub { color: var(--muted); margin: 6px 0 0; font-size: .96rem; }
+.kicker { text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 800; color: var(--be-red-deep); margin: 0; }
+.badge { background: var(--be-gold); color: #3a2a00; padding: 1px 7px; border-radius: 999px; font-size: .68rem; letter-spacing: .04em; }
+.provbanner { background: #fff7e6; border: 1px solid #f0d488; color: #6b4e00; padding: 11px 14px; border-radius: 12px; font-size: .9rem; margin: 0; }
+
+/* ============ home ============ */
+.home { text-align: center; align-items: center; padding-top: 14px; gap: 14px; }
+.home-q { font-size: clamp(1.9rem, 6vw, 3.2rem); max-width: 16ch; }
+.home-big { font-size: clamp(3rem, 13vw, 6rem); font-weight: 900; letter-spacing: -0.04em; line-height: .95; color: var(--be-red-deep); margin: 4px 0 0; }
+.home-perday { font-weight: 700; color: var(--ink); margin: 0; font-size: 1.05rem; }
+.home-lead { color: var(--muted); max-width: 46ch; margin: 2px auto 0; }
+.hook { width: 100%; max-width: 460px; background: var(--ground); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px; margin-top: 4px; }
+.hook label { display: block; font-weight: 700; margin-bottom: 8px; text-align: left; }
+.hook-row { display: flex; gap: 8px; }
+.hook-row input { flex: 1; min-width: 0; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 11px; font-weight: 700; }
+.btn-primary { display: inline-flex; align-items: center; gap: 7px; background: var(--be-red-deep); color: #fff; border: none; border-radius: 11px; padding: 12px 16px; font-weight: 800; white-space: nowrap; }
+.btn-primary .ic { width: 18px; height: 18px; }
+.btn-primary:hover { background: #a50d25; }
+.entry { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; width: 100%; max-width: 760px; }
+.entry-card { display: flex; align-items: center; gap: 12px; text-align: left; text-decoration: none; color: var(--ink); background: var(--ground); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); transition: transform .12s ease; }
+.entry-card:hover { transform: translateY(-2px); }
+.entry-ic { width: 30px; height: 30px; flex: 0 0 auto; color: var(--be-red-deep); }
+.entry-ic .ic { width: 100%; height: 100%; }
+.entry-card b { display: block; }
+.entry-card small { color: var(--muted); font-size: .82rem; }
+
+/* ============ cards ============ */
+.card { background: var(--ground); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+.card h2 { font-size: 1.25rem; }
+.card-head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; }
+.h-row { display: flex; align-items: center; gap: 10px; }
+.h-ic { width: 1.3em; height: 1.3em; color: var(--be-red-deep); flex: 0 0 auto; }
+.h-ic .ic { width: 100%; height: 100%; }
+
+/* ============ stats ============ */
+.stat { background: var(--panel); border: 1px solid var(--line); border-radius: 13px; padding: 14px 16px; border-top: 4px solid var(--be-gold); }
+.stat-num { display: block; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; letter-spacing: -0.03em; }
+.stat-lbl { display: block; color: var(--muted); font-size: .82rem; margin-top: 4px; }
+
+/* ============ treemap ============ */
+.breadcrumb { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 12px 0; font-size: .9rem; }
+.breadcrumb button, .breadcrumb a { background: none; border: none; color: var(--be-red-deep); font-weight: 700; padding: 2px 4px; text-decoration: underline; }
+.breadcrumb .sep { color: var(--muted); }
+.breadcrumb .cur { font-weight: 700; color: var(--ink); }
+.treemap { position: relative; width: 100%; aspect-ratio: 16/10; min-height: 320px; border-radius: 12px; overflow: hidden; background: var(--paper); }
+.tm-cell { position: absolute; overflow: hidden; border: 2px solid #fff; border-radius: 7px; display: flex; flex-direction: column; justify-content: flex-end; padding: 8px 9px; color: #fff; text-align: left; transition: filter .12s ease; cursor: pointer; }
+.tm-cell.is-leaf { cursor: default; }
+.tm-cell:hover { filter: brightness(1.08); z-index: 2; }
+.tm-cell:focus-visible { outline: none; box-shadow: inset 0 0 0 3px var(--ink), inset 0 0 0 6px #fff; z-index: 4; }
+.tm-cell .tm-name { font-weight: 700; font-size: .82rem; line-height: 1.05; text-shadow: 0 1px 2px rgba(0,0,0,.35); }
+.tm-cell .tm-val { font-size: .74rem; opacity: .95; text-shadow: 0 1px 2px rgba(0,0,0,.35); }
+.tm-cell.ink-dark { color: var(--be-black); }
+.tm-cell.ink-dark .tm-name, .tm-cell.ink-dark .tm-val { text-shadow: none; }
+.tm-ic { position: absolute; top: 8px; left: 10px; width: 22px; height: 22px; opacity: .9; }
+.tm-ic .ic { width: 22px; height: 22px; }
+.data-fallback summary { cursor: pointer; color: var(--be-red-deep); font-weight: 700; font-size: .9rem; padding: 4px 0; }
+
+/* ============ category grid ============ */
+.cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.cat-card { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); background: var(--ground); border: 1px solid var(--line); border-radius: 14px; padding: 14px; box-shadow: var(--shadow); transition: transform .12s ease; }
+.cat-card:hover { transform: translateY(-2px); }
+.cat-meta { flex: 1; min-width: 0; }
+.cat-meta b { display: block; font-size: .98rem; }
+.cat-meta small { color: var(--muted); font-size: .82rem; }
+.cat-day { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cat-day small { display: block; color: var(--muted); font-weight: 600; font-size: .72rem; }
+
+/* data sources */
+.src-list { display: flex; flex-direction: column; gap: 10px; }
+.src-card { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); background: var(--ground); border: 1px solid var(--line); border-radius: 12px; padding: 14px; box-shadow: var(--shadow); transition: transform .12s ease; }
+.src-card:hover { transform: translateY(-1px); }
+.src-meta { flex: 1; min-width: 0; }
+.src-meta b { display: block; font-size: .98rem; }
+.src-meta small { color: var(--muted); font-size: .85rem; }
+.src-lic { flex: 0 0 auto; font-size: .72rem; font-weight: 800; color: var(--be-red-deep); border: 1.5px solid var(--line); border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
+
+/* ============ category detail ============ */
+.cat-detail { gap: 14px; }
+.cat-hero { background: var(--ground); border: 1px solid var(--line); border-left: 6px solid var(--cat); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+.cat-hero-ic { width: 48px; height: 48px; margin-bottom: 10px; }
+.cat-hero h1 { font-size: clamp(1.6rem, 4.5vw, 2.3rem); }
+.cat-blurb { color: var(--ink); margin: 10px 0 0; font-size: 1.05rem; max-width: 60ch; }
+.cat-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.covers, .dept-list { margin: 12px 0 0; padding: 0; list-style: none; }
+.covers li { position: relative; padding-left: 22px; margin: 7px 0; }
+.covers li::before { content: ""; position: absolute; left: 4px; top: .55em; width: 7px; height: 7px; border-radius: 2px; background: var(--be-red); }
+.covers-none li { color: var(--muted); font-style: italic; }
+.covers-none li::before { background: var(--muted); }
+.cat-note { margin: 12px 0 0; padding: 10px 12px; background: var(--panel); border-radius: 10px; color: var(--muted); font-size: .9rem; }
+.dept-list li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.dept-list li:last-child { border-bottom: none; }
+.dept-list b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.your-card { border-left: 6px solid var(--be-gold); }
+.your-amt { font-size: 1.3rem; margin: 10px 0 0; }
+.your-amt b { color: var(--be-red-deep); }
+.cat-nav { display: flex; gap: 10px; }
+.btn { flex: 1; min-width: 0; text-align: center; text-decoration: none; background: var(--ground); border: 1.5px solid var(--line); border-radius: 12px; padding: 12px; font-weight: 700; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn:hover { border-color: var(--ink); }
+
+/* ============ you / daily bread ============ */
+.db-label { display: block; font-weight: 700; margin-bottom: 8px; }
+.db-input { display: flex; align-items: center; gap: 16px; }
+.db-input input[type=range] { flex: 1; accent-color: var(--be-red); height: 28px; }
+#income-out { font-weight: 800; font-size: 1.2rem; min-width: 5.5ch; text-align: right; }
+.db-tax { font-size: 1.05rem; margin: 14px 0 0; }
+.db-tax strong { color: var(--be-red-deep); }
+.db-disclaimer { color: var(--muted); font-size: .82rem; margin: 6px 0 14px; }
+.db-tax small { display: block; color: var(--muted); font-weight: 500; font-size: .85rem; margin-top: 3px; }
+.extras { display: flex; flex-direction: column; gap: 14px; margin: 14px 0; }
+.extra-item { display: flex; flex-direction: column; }
+.extra-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.extra-head { display: flex; align-items: center; gap: 4px; flex: 1 1 170px; min-width: 0; }
+.extra-ctrl { display: flex; align-items: center; gap: 10px; flex: 2 1 240px; min-width: 0; }
+.info-btn { background: none; border: none; color: var(--be-red-deep); width: 26px; height: 26px; padding: 3px; border-radius: 50%; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; }
+.info-btn .ic { width: 18px; height: 18px; }
+.info-btn:hover { background: #fdecec; }
+.extra-info { margin: 4px 0 0; font-size: .85rem; color: var(--muted); background: var(--panel); padding: 9px 11px; border-radius: 8px; }
+.extra-tog { display: flex; align-items: center; gap: 8px; font-weight: 600; min-width: 0; }
+.extra-tog input { width: 18px; height: 18px; accent-color: var(--be-red); flex: 0 0 auto; }
+.qty-in { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
+.qty-in input { width: 5em; padding: 8px 10px; border: 1.5px solid var(--line); border-radius: 9px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.qty-in input:disabled { opacity: .5; }
+.qty-in .unit { color: var(--muted); font-size: .85rem; white-space: nowrap; }
+.extra-out { margin-left: auto; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+@media (max-width: 560px) { .info-btn { width: 40px; height: 40px; } }
+.commune-in { width: 100%; max-width: 360px; padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 10px; font-weight: 600; margin-bottom: 14px; }
+.lvlbar { display: flex; height: 22px; border-radius: 7px; overflow: hidden; background: var(--line); }
+.lvlbar span { display: block; min-width: 2px; }
+.lvl-legend { list-style: none; padding: 0; margin: 12px 0; display: flex; flex-direction: column; gap: 8px; }
+.lvl-legend li { display: flex; align-items: center; gap: 10px; font-size: .95rem; }
+.lvl-legend .sw { width: 14px; height: 14px; border-radius: 3px; flex: 0 0 auto; }
+.lvl-legend b { margin-left: auto; font-variant-numeric: tabular-nums; }
+.lvl-legend small { color: var(--muted); min-width: 3.6ch; text-align: right; }
+.db-breakdown { display: grid; gap: 8px; }
+.db-row { display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; font-size: .95rem; text-decoration: none; color: var(--ink); padding: 4px; border-radius: 10px; }
+.db-row:hover { background: var(--panel); }
+.db-bar { display: block; width: 100%; height: 8px; border-radius: 4px; background: var(--line); position: relative; overflow: hidden; margin-top: 4px; }
+.db-bar > i { position: absolute; inset: 0 auto 0 0; border-radius: 4px; }
+.db-name { display: flex; flex-direction: column; min-width: 0; }
+.db-name b { font-weight: 600; }
+.db-val { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 700; }
+.db-val small { color: var(--muted); font-weight: 500; }
+
+/* ============ table ============ */
+.downloads { display: flex; gap: 8px; margin: 12px 0; }
+.downloads button { border: 1.5px solid var(--ink); background: #fff; color: var(--ink); padding: 9px 12px; border-radius: 9px; font-weight: 700; font-size: .82rem; }
+.downloads button:hover { background: var(--ink); color: #fff; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+thead th { background: var(--panel); }
+thead th button { background: none; border: none; font-weight: 800; color: var(--ink); padding: 0; }
+thead th[aria-sort="ascending"] button::after { content: " ▲"; }
+thead th[aria-sort="descending"] button::after { content: " ▼"; }
+.td-lbl { display: inline-flex; align-items: center; text-decoration: none; color: var(--ink); }
+tbody tr:hover { background: #faf9f6; }
+
+/* ============ compare ============ */
+.cmp-pick { display: flex; flex-direction: column; gap: 12px; }
+.cmp-pick-row { display: flex; align-items: center; gap: 12px; }
+.cmp-pick-row > span { font-weight: 700; min-width: 3em; }
+.cmp-total { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 14px; }
+.cmp-total b { font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.cmp-list { display: flex; flex-direction: column; gap: 8px; }
+.cmp-row { display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; text-decoration: none; color: var(--ink); background: var(--ground); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; box-shadow: var(--shadow); transition: transform .12s ease; }
+.cmp-row:hover { transform: translateY(-1px); }
+.cmp-name { display: flex; flex-direction: column; min-width: 0; }
+.cmp-name b { font-size: .95rem; }
+.cmp-name small { color: var(--muted); font-variant-numeric: tabular-nums; }
+.cmp-delta { font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+.cmp-delta small { display: block; font-weight: 600; opacity: .85; }
+.cmp-delta.up { color: #1d3461; }
+.cmp-delta.down { color: #0b6b4a; }
+.cmp-delta.flat { color: var(--muted); }
+.dept-list b small { color: var(--muted); font-weight: 600; margin-left: 6px; }
+
+/* ============ icons / chips ============ */
+.ic { width: 1em; height: 1em; display: block; }
+.chip { display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; color: #fff; flex: 0 0 auto; }
+.chip.ink-dark { color: var(--be-black); }
+.db-ic { width: 28px; height: 28px; font-size: 16px; }
+.cell-ic { width: 24px; height: 24px; font-size: 15px; margin-right: 9px; }
+.card-ic { width: 40px; height: 40px; font-size: 22px; }
+.cat-hero-ic.chip { font-size: 26px; }
+
+/* ============ about ============ */
+.about-src { color: var(--muted); font-size: .88rem; }
+.foot-meta { margin-top: 6px; opacity: .85; }
+
+/* ============ view transitions ============ */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .22s; }
+
+/* ============ responsive ============ */
+@media (min-width: 721px) {
+  body { padding-bottom: 0; }
+  .tabbar { position: static; max-width: var(--maxw); margin: 8px auto 0; border-top: none; justify-content: flex-start; gap: 6px; padding: 0 16px; }
+  .tabbar a { flex: 0 0 auto; flex-direction: row; gap: 8px; min-height: 0; padding: 9px 14px; font-size: .9rem; }
+  .tabbar a .ic { width: 18px; height: 18px; }
+}
+@media (max-width: 560px) {
+  .entry { grid-template-columns: 1fr; }
+  .cat-stats { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .treemap { aspect-ratio: 3/4; min-height: 440px; }
+  .db-row { grid-template-columns: 28px 1fr; }
+  .db-val { grid-column: 2; white-space: normal; font-size: .9rem; margin-top: 2px; }
+}
+@media (max-width: 400px) { .brand-title { display: none; } }
+@media (max-width: 360px) {
+  .yearseg button { padding: 6px 6px; font-size: .74rem; }
+  .lang button { padding: 6px 6px; }
+  .appbar-inner { gap: 8px; padding: 10px 12px; }
+}
+@media (prefers-reduced-motion: reduce) { *, ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; transition: none !important; } }
+</style>
+
+  <a class="skip-link" href="#view" data-i18n="skip">Naar inhoud</a>
+
+  <header class="appbar">
+    <div class="appbar-inner">
+      <button type="button" class="brand" id="brand-home" aria-label="Home">
+        <span class="flag" aria-hidden="true"></span>
+        <span class="brand-title" data-i18n="title">Waar gaat mijn belastinggeld naartoe?</span>
+      </button>
+      <div class="appbar-tools">
+        <div class="yearseg" role="group" aria-label="Jaar / Année / Year" id="yearseg"></div>
+        <nav class="lang" aria-label="Taal / Langue / Language">
+          <button type="button" data-lang="nl" aria-pressed="true">NL</button>
+          <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </nav>
+      </div>
+    </div>
+    <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
+  </header>
+
+  <nav class="tabbar" id="tabbar" aria-label="Hoofdnavigatie"></nav>
+
+  <main id="view" tabindex="-1"></main>
+
+  <p id="route-status" class="sr-only" aria-live="polite"></p>
+
+  
+  
+  
+  
+
+<script>/* Lucide icons (https://lucide.dev) — ISC License, © Lucide Contributors. Inner SVG paths only; wrapped at render time. */
+globalThis.ICONS = {"arrow-left-right":"<path d=\"M8 3 4 7l4 4\" /> <path d=\"M4 7h16\" /> <path d=\"m16 21 4-4-4-4\" /> <path d=\"M20 17H4\" />","arrow-left":"<path d=\"m12 19-7-7 7-7\" /> <path d=\"M19 12H5\" />","arrow-right":"<path d=\"M5 12h14\" /> <path d=\"m12 5 7 7-7 7\" />","banknote":"<rect width=\"20\" height=\"12\" x=\"2\" y=\"6\" rx=\"2\" /> <circle cx=\"12\" cy=\"12\" r=\"2\" /> <path d=\"M6 12h.01M18 12h.01\" />","briefcase":"<path d=\"M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\" /> <rect width=\"20\" height=\"14\" x=\"2\" y=\"6\" rx=\"2\" />","calendar-days":"<path d=\"M8 2v4\" /> <path d=\"M16 2v4\" /> <rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\" /> <path d=\"M3 10h18\" /> <path d=\"M8 14h.01\" /> <path d=\"M12 14h.01\" /> <path d=\"M16 14h.01\" /> <path d=\"M8 18h.01\" /> <path d=\"M12 18h.01\" /> <path d=\"M16 18h.01\" />","coins":"<path d=\"M13.744 17.736a6 6 0 1 1-7.48-7.48\" /> <path d=\"M15 6h1v4\" /> <path d=\"m6.134 14.768.866-.5 2 3.464\" /> <circle cx=\"16\" cy=\"8\" r=\"6\" />","download":"<path d=\"M12 15V3\" /> <path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\" /> <path d=\"m7 10 5 5 5-5\" />","ellipsis":"<circle cx=\"12\" cy=\"12\" r=\"1\" /> <circle cx=\"19\" cy=\"12\" r=\"1\" /> <circle cx=\"5\" cy=\"12\" r=\"1\" />","globe":"<circle cx=\"12\" cy=\"12\" r=\"10\" /> <path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\" /> <path d=\"M2 12h20\" />","hand-coins":"<path d=\"M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17\" /> <path d=\"m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9\" /> <path d=\"m2 16 6 6\" /> <circle cx=\"16\" cy=\"9\" r=\"2.9\" /> <circle cx=\"6\" cy=\"5\" r=\"3\" />","heart-handshake":"<path d=\"M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762\" />","house":"<path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\" /> <path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\" />","info":"<circle cx=\"12\" cy=\"12\" r=\"10\" /> <path d=\"M12 16v-4\" /> <path d=\"M12 8h.01\" />","landmark":"<path d=\"M10 18v-7\" /> <path d=\"M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z\" /> <path d=\"M14 18v-7\" /> <path d=\"M18 18v-7\" /> <path d=\"M3 22h18\" /> <path d=\"M6 18v-7\" />","layout-grid":"<rect width=\"7\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"7\" x=\"14\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"7\" x=\"14\" y=\"14\" rx=\"1\" /> <rect width=\"7\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\" />","map":"<path d=\"M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z\" /> <path d=\"M15 5.764v15\" /> <path d=\"M9 3.236v15\" />","percent":"<line x1=\"19\" x2=\"5\" y1=\"5\" y2=\"19\" /> <circle cx=\"6.5\" cy=\"6.5\" r=\"2.5\" /> <circle cx=\"17.5\" cy=\"17.5\" r=\"2.5\" />","scale":"<path d=\"M12 3v18\" /> <path d=\"m19 8 3 8a5 5 0 0 1-6 0zV7\" /> <path d=\"M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1\" /> <path d=\"m5 8 3 8a5 5 0 0 1-6 0zV7\" /> <path d=\"M7 21h10\" />","shield":"<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" />","siren":"<path d=\"M7 18v-6a5 5 0 1 1 10 0v6\" /> <path d=\"M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z\" /> <path d=\"M21 12h1\" /> <path d=\"M18.5 4.5 18 5\" /> <path d=\"M2 12h1\" /> <path d=\"M12 2v1\" /> <path d=\"m4.929 4.929.707.707\" /> <path d=\"M12 12v6\" />","stethoscope":"<path d=\"M11 2v2\" /> <path d=\"M5 2v2\" /> <path d=\"M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1\" /> <path d=\"M8 15a6 6 0 0 0 12 0v-3\" /> <circle cx=\"20\" cy=\"10\" r=\"2\" />","table-2":"<path d=\"M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18\" />","train-front":"<path d=\"M8 3.1V7a4 4 0 0 0 8 0V3.1\" /> <path d=\"m9 15-1-1\" /> <path d=\"m15 15 1-1\" /> <path d=\"M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z\" /> <path d=\"m8 19-2 3\" /> <path d=\"m16 19 2 3\" />","users":"<path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\" /> <path d=\"M16 3.128a4 4 0 0 1 0 7.744\" /> <path d=\"M22 21v-2a4 4 0 0 0-3-3.87\" /> <circle cx=\"9\" cy=\"7\" r=\"4\" />"};
+</script>
+<script>/* Per-category explanatory content (NL/FR/EN). Grounded in the verified
+   department→function mapping (pipeline/taxonomy-map.json) and ETL_FINDINGS.md.
+   blurb = one-line "what it covers in Belgium"; covers = concrete examples;
+   note = optional caveat. Department line items themselves come from the data. */
+globalThis.CONTENT = {
+  social_protection: {
+    blurb: {
+      nl: 'De bijdrage van de federale overheid aan de Belgische sociale zekerheid, plus steun voor mensen in nood.',
+      fr: 'La participation de l’État fédéral à la sécurité sociale belge, plus l’aide aux personnes en difficulté.',
+      en: 'The federal government’s payment into Belgium’s social security, plus support for people in need.' },
+    covers: {
+      nl: ['Pensioenen', 'Financiering ziekteverzekering (RIZIV)', 'Werkloosheid en kinderbijslag', 'Leefloon en OCMW-steun', 'Opvang van asielzoekers'],
+      fr: ['Pensions', 'Financement de l’assurance maladie (INAMI)', 'Chômage et allocations familiales', 'Revenu d’intégration et aide des CPAS', 'Accueil des demandeurs d’asile'],
+      en: ['Pensions', 'Health-insurance funding (INAMI/RIZIV)', 'Unemployment & family benefits', 'Minimum income & OCMW/CPAS aid', 'Reception of asylum seekers'] },
+  },
+  health: {
+    blurb: {
+      nl: 'Het federale gezondheidsbeleid en de veiligheid. De meeste zorg wordt via de sociale zekerheid betaald, dus deze post is klein.',
+      fr: 'La politique fédérale de santé publique et de sécurité. La plupart des soins sont payés par la sécurité sociale, donc ce poste est petit.',
+      en: 'Federal public-health policy and safety. Most medical care is paid through social security, so this line is small.' },
+    covers: {
+      nl: ['Voedselveiligheid (FAVV)', 'Ziekenhuisregelgeving', 'Geneesmiddelenbeleid (FAGG)', 'Voorbereiding op gezondheidscrises'],
+      fr: ['Sécurité alimentaire (AFSCA)', 'Réglementation des hôpitaux', 'Politique du médicament (AFMPS)', 'Préparation aux crises sanitaires'],
+      en: ['Food safety (FASFC/AFSCA)', 'Hospital regulation', 'Medicines policy (FAMHP)', 'Health-crisis preparedness'] },
+    note: {
+      nl: 'Je dokter- en ziekenhuiskosten zitten bij Sociale bescherming, niet hier.',
+      fr: 'Vos soins médicaux sont financés via la Protection sociale, pas ici.',
+      en: 'Your doctor and hospital bills are funded under Social protection, not here.' },
+  },
+  regions_communities: {
+    blurb: {
+      nl: 'Geld dat de federale overheid doorstort naar de Gewesten en Gemeenschappen, die veel dagelijkse diensten beheren.',
+      fr: 'L’argent que l’État fédéral transfère aux Régions et Communautés, qui gèrent de nombreux services du quotidien.',
+      en: 'Money the federal government transfers to the Regions and Communities, which run many day-to-day services.' },
+    covers: {
+      nl: ['Vlaamse, Franse en Duitstalige Gemeenschap', 'Gemeenschappelijke Gemeenschapscommissie (Brussel)', 'Financiering van onderwijs, cultuur en welzijn die lokaal worden geregeld'],
+      fr: ['Communautés flamande, française et germanophone', 'Commission communautaire commune (Bruxelles)', 'Financement de l’enseignement, la culture et l’aide sociale gérés localement'],
+      en: ['Flemish, French & German-speaking Communities', 'Common Community Commission (Brussels)', 'Funding for education, culture & welfare run locally'] },
+  },
+  debt_interest: {
+    blurb: {
+      nl: 'De rente die België op zijn staatsschuld betaalt. Het aflossen van de schuld zelf telt niet mee als uitgave.',
+      fr: 'Les intérêts que la Belgique paie sur sa dette publique. Le remboursement de la dette elle-même n’est pas compté.',
+      en: 'Interest Belgium pays on its national debt. Repaying the debt itself (rollover) is not counted as spending.' },
+    covers: {
+      nl: ['Rente op langlopende staatsobligaties', 'Rente op kortlopende schuld', 'Kosten van schuldbeheer'],
+      fr: ['Intérêts sur les obligations à long terme', 'Intérêts sur la dette à court terme', 'Frais de gestion de la dette'],
+      en: ['Interest on long-term government bonds', 'Interest on short-term debt', 'Debt-management costs'] },
+  },
+  defense: {
+    blurb: {
+      nl: 'De Belgische strijdkrachten en de internationale militaire engagementen.',
+      fr: 'Les forces armées belges et les engagements militaires internationaux du pays.',
+      en: 'The Belgian armed forces and the country’s international military commitments.' },
+    covers: {
+      nl: ['Land-, lucht- en marinecomponent', 'Personeel en militaire pensioenen', 'Uitrusting en operaties', 'NAVO-engagementen'],
+      fr: ['Composantes terre, air et marine', 'Personnel et pensions militaires', 'Équipement et opérations', 'Engagements OTAN'],
+      en: ['Army, air & naval components', 'Military personnel & pensions', 'Equipment & operations', 'NATO commitments'] },
+  },
+  justice: {
+    blurb: {
+      nl: 'Het gerechtelijk systeem: rechtbanken, rechters en gevangenissen.',
+      fr: 'Le système judiciaire : tribunaux, juges et prisons.',
+      en: 'The justice system: courts, judges and prisons.' },
+    covers: {
+      nl: ['Rechtbanken en magistraten', 'Gevangenissen en detentie', 'Juridische bijstand', 'Justitieadministratie'],
+      fr: ['Tribunaux et magistrats', 'Prisons et détention', 'Aide juridique', 'Administration de la justice'],
+      en: ['Courts & magistrates', 'Prisons & detention', 'Legal aid', 'Justice administration'] },
+  },
+  security_interior: {
+    blurb: {
+      nl: 'Het land veilig houden en de binnenlandse kerntaken beheren.',
+      fr: 'Assurer la sécurité du pays et gérer les affaires intérieures.',
+      en: 'Keeping the country safe and running its core internal affairs.' },
+    covers: {
+      nl: ['Federale politie', 'Civiele bescherming en brandweer', 'Crisiscentrum', 'Dienst Vreemdelingenzaken (asiel en migratie)', 'Organisatie van verkiezingen'],
+      fr: ['Police fédérale', 'Protection civile et pompiers', 'Centre de crise', 'Office des étrangers (asile et migration)', 'Organisation des élections'],
+      en: ['Federal police', 'Civil protection & fire services', 'Crisis centre', 'Immigration office (asylum & migration)', 'Organising elections'] },
+  },
+  mobility: {
+    blurb: {
+      nl: 'Vervoer, vooral steun aan het spoor.',
+      fr: 'Les transports, dominés par le soutien au rail.',
+      en: 'Transport, dominated by support for the railways.' },
+    covers: {
+      nl: ['Spoorsubsidies (NMBS en Infrabel)', 'Beleid voor weg, lucht en zee', 'Verkeersveiligheid en regelgeving'],
+      fr: ['Subsides ferroviaires (SNCB et Infrabel)', 'Politique routière, aérienne et maritime', 'Sécurité et régulation des transports'],
+      en: ['Rail subsidies (SNCB/NMBS & Infrabel)', 'Road, air & maritime policy', 'Transport safety & regulation'] },
+  },
+  finance_admin: {
+    blurb: {
+      nl: 'Belastingen innen en de federale administratie laten draaien.',
+      fr: 'Percevoir les impôts et faire fonctionner l’administration fédérale.',
+      en: 'Collecting taxes and running the federal administration.' },
+    covers: {
+      nl: ['Belastingdienst (FOD Financiën)', 'ICT, HR en loon van de overheid (BOSA)', 'Federale gebouwen (Regie der Gebouwen)', 'Eenmalige fondsen en provisies'],
+      fr: ['Administration fiscale (SPF Finances)', 'Informatique, RH et paie publique (BOSA)', 'Bâtiments fédéraux (Régie des Bâtiments)', 'Fonds et provisions ponctuels'],
+      en: ['Tax authority (FPS Finance)', 'Public-service IT, HR & payroll (BOSA)', 'Federal buildings (Buildings Agency)', 'One-off funds & provisions'] },
+    note: {
+      nl: 'Hoog in 2024 door eenmalige posten (garantiefonds, provisies Oekraïne en indexering) — geen gewone overhead.',
+      fr: 'Élevé en 2024 à cause de postes ponctuels (fonds de garantie, provisions Ukraine et indexation) — pas des frais courants.',
+      en: 'Large in 2024 due to one-off items (deposit-guarantee fund, Ukraine & indexation provisions) — not routine overhead.' },
+  },
+  foreign_eu: {
+    blurb: {
+      nl: 'De plaats van België in de wereld en zijn EU-lidmaatschap.',
+      fr: 'La place de la Belgique dans le monde et son adhésion à l’UE.',
+      en: 'Belgium’s place in the world and its EU membership.' },
+    covers: {
+      nl: ['Diplomatie en ambassades', 'Ontwikkelingssamenwerking', 'Belgische bijdrage aan de Europese Unie'],
+      fr: ['Diplomatie et ambassades', 'Coopération au développement', 'Contribution de la Belgique à l’Union européenne'],
+      en: ['Diplomacy & embassies', 'Development cooperation', 'Belgium’s contribution to the European Union'] },
+  },
+  economy_work_science: {
+    blurb: {
+      nl: 'Steun aan de economie, federaal arbeidsbeleid en wetenschap.',
+      fr: 'Le soutien à l’économie, la politique fédérale de l’emploi et la science.',
+      en: 'Support for the economy, federal labour policy and science.' },
+    covers: {
+      nl: ['Economie, kmo’s en energieregulering', 'Federale werkgelegenheid en arbeidsrelaties', 'Wetenschapsbeleid (Belspo, onderzoeksinstellingen, ESA/ruimtevaart)'],
+      fr: ['Économie, PME et régulation de l’énergie', 'Emploi fédéral et relations de travail', 'Politique scientifique (Belspo, instituts de recherche, ESA/spatial)'],
+      en: ['Economy, SMEs & energy regulation', 'Federal employment & labour relations', 'Science policy (Belspo, research institutes, ESA/space)'] },
+  },
+  democratic_institutions: {
+    blurb: {
+      nl: 'De instellingen van de Belgische democratie en de monarchie.',
+      fr: 'Les institutions de la démocratie belge et la monarchie.',
+      en: 'The institutions of Belgian democracy and the monarchy.' },
+    covers: {
+      nl: ['Federaal parlement (Kamer en Senaat)', 'De monarchie (Civiele Lijst en dotaties)', 'Grondwettelijk Hof en Rekenhof', 'Onafhankelijke organen (ombudsmannen, GBA)', 'Kanselarij van de premier'],
+      fr: ['Parlement fédéral (Chambre et Sénat)', 'La monarchie (Liste civile et dotations)', 'Cour constitutionnelle et Cour des comptes', 'Organes indépendants (médiateurs, APD)', 'Chancellerie du Premier ministre'],
+      en: ['Federal Parliament (Chamber & Senate)', 'The monarchy (Civil List & royal endowments)', 'Constitutional Court & Court of Audit', 'Independent bodies (ombudsmen, data-protection authority)', 'Prime Minister’s Chancellery'] },
+  },
+};
+</script>
+<script>/* Government-level explainers (NL/FR/EN). Competences verified 3-0 via deep-research
+   (belgium.be, EU Committee of the Regions, be.brussels, CFWB). Communities have NO
+   own tax — funded by federal transfers (Special Financing Act 1989). Curative care
+   is federal; Communities cover PREVENTIVE health only. */
+globalThis.LEVELS = {
+  federal: {
+    icon: 'landmark', color: '#c8102e',
+    label: { nl: 'Federaal', fr: 'Fédéral', en: 'Federal' },
+    blurb: {
+      nl: 'De federale staat: sociale zekerheid, gezondheidszorg, justitie, defensie — en de grootste belastingen.',
+      fr: 'L’État fédéral : sécurité sociale, soins de santé, justice, défense — et les principaux impôts.',
+      en: 'The federal state: social security, healthcare, justice, defence — and the main taxes.' },
+    taxes: {
+      nl: ['Personenbelasting (basis)', 'Vennootschapsbelasting', 'Btw en accijnzen', 'Sociale bijdragen'],
+      fr: ['Impôt des personnes physiques (base)', 'Impôt des sociétés', 'TVA et accises', 'Cotisations sociales'],
+      en: ['Personal income tax (base)', 'Corporate tax', 'VAT and excise', 'Social contributions'] },
+    spends: {
+      nl: ['Sociale zekerheid en pensioenen', 'Ziekteverzekering (curatieve zorg)', 'Justitie en federale politie', 'Defensie en buitenlandse zaken', 'Rente op de staatsschuld', 'Spoor (NMBS)'],
+      fr: ['Sécurité sociale et pensions', 'Assurance maladie (soins curatifs)', 'Justice et police fédérale', 'Défense et affaires étrangères', 'Intérêts de la dette publique', 'Rail (SNCB)'],
+      en: ['Social security and pensions', 'Health insurance (curative care)', 'Justice and federal police', 'Defence and foreign affairs', 'Interest on the national debt', 'Rail (SNCB/NMBS)'] },
+    funding: {
+      nl: 'Int de grootste belastingen en stort een deel door naar de gewesten en gemeenschappen.',
+      fr: 'Perçoit les principaux impôts et en reverse une partie aux régions et communautés.',
+      en: 'Collects the main taxes and passes part on to the regions and communities.' },
+  },
+  region: {
+    icon: 'map', color: '#1d3461',
+    label: { nl: 'Gewest', fr: 'Région', en: 'Region' },
+    blurb: {
+      nl: 'De gewesten (Vlaanderen, Wallonië, Brussel): economie, milieu, mobiliteit en wonen — gebonden aan het grondgebied.',
+      fr: 'Les régions (Flandre, Wallonie, Bruxelles) : économie, environnement, mobilité et logement — liées au territoire.',
+      en: 'The regions (Flanders, Wallonia, Brussels): economy, environment, mobility and housing — tied to the territory.' },
+    taxes: {
+      nl: ['Gewestelijke opcentiemen op de personenbelasting', 'Registratierechten (vastgoed)', 'Erf- en schenkbelasting', 'Verkeersbelasting', 'Belasting op inverkeerstelling (BIV)'],
+      fr: ['Additionnels régionaux à l’impôt des personnes physiques', 'Droits d’enregistrement (immobilier)', 'Droits de succession et de donation', 'Taxe de circulation', 'Taxe de mise en circulation (TMC)'],
+      en: ['Regional surcharge on personal income tax', 'Registration duties (real estate)', 'Inheritance & gift duties', 'Road tax', 'Vehicle registration tax (TMC/BIV)'] },
+    spends: {
+      nl: ['Economie en werk', 'Milieu, water en natuur', 'Energie', 'Openbare werken en mobiliteit (geen spoor)', 'Wonen en ruimtelijke ordening', 'Landbouw en visserij', 'Toezicht op de gemeenten'],
+      fr: ['Économie et emploi', 'Environnement, eau et nature', 'Énergie', 'Travaux publics et mobilité (hors rail)', 'Logement et aménagement du territoire', 'Agriculture et pêche', 'Tutelle sur les communes'],
+      en: ['Economy and employment', 'Environment, water and nature', 'Energy', 'Public works and mobility (except rail)', 'Housing and spatial planning', 'Agriculture and fisheries', 'Oversight of the communes'] },
+    funding: {
+      nl: 'Eigen belastingen en opcentiemen, aangevuld met federale dotaties.',
+      fr: 'Impôts et additionnels propres, complétés par des dotations fédérales.',
+      en: 'Own taxes and surcharges, topped up by federal transfers.' },
+  },
+  community: {
+    icon: 'users', color: '#7a5195',
+    label: { nl: 'Gemeenschap', fr: 'Communauté', en: 'Community' },
+    blurb: {
+      nl: 'De gemeenschappen (Vlaamse, Franse, Duitstalige): onderwijs, cultuur en welzijn — gebonden aan personen en taal.',
+      fr: 'Les communautés (flamande, française, germanophone) : enseignement, culture et aide aux personnes — liées aux personnes et à la langue.',
+      en: 'The communities (Flemish, French, German-speaking): education, culture and welfare — tied to people and language.' },
+    taxes: {
+      nl: ['Geen eigen belastingen'],
+      fr: ['Aucun impôt propre'],
+      en: ['No own taxes'] },
+    spends: {
+      nl: ['Onderwijs en opleiding', 'Cultuur en media', 'Taalgebruik', 'Welzijn, gezin en jeugd', 'Preventieve gezondheidszorg'],
+      fr: ['Enseignement et formation', 'Culture et médias', 'Emploi des langues', 'Aide aux personnes, familles et jeunesse', 'Santé préventive'],
+      en: ['Education and training', 'Culture and media', 'Use of languages', 'Welfare, family and youth', 'Preventive health'] },
+    funding: {
+      nl: 'Heeft géén eigen belastingen — wordt gefinancierd door federale dotaties, berekend op gedeelde btw- en personenbelasting (Financieringswet 1989). Hun uitgaven betaal je dus via federaal geld.',
+      fr: 'N’a aucun impôt propre — financée par des dotations fédérales calculées sur la TVA et l’IPP partagés (Loi de financement 1989). Vous financez donc leurs dépenses via l’argent fédéral.',
+      en: 'Has no own taxes — funded by federal transfers based on shared VAT and income tax (Special Financing Act 1989). So you fund its spending through federal money.' },
+    noTax: true,
+  },
+  commune: {
+    icon: 'house', color: '#007068',
+    label: { nl: 'Gemeente', fr: 'Commune', en: 'Commune' },
+    blurb: {
+      nl: 'De gemeenten (581): de dienstverlening het dichtst bij de burger.',
+      fr: 'Les communes (581) : les services les plus proches du citoyen.',
+      en: 'The communes (581): the services closest to the citizen.' },
+    taxes: {
+      nl: ['Aanvullende gemeentebelasting op de personenbelasting (~0–9%)', 'Opcentiemen op de onroerende voorheffing', 'Lokale heffingen'],
+      fr: ['Taxe communale additionnelle à l’IPP (~0–9 %)', 'Centimes additionnels au précompte immobilier', 'Taxes locales'],
+      en: ['Additional communal tax on income tax (~0–9%)', 'Surcharge on the property withholding tax', 'Local levies'] },
+    spends: {
+      nl: ['Lokale politie en brandweer', 'Lokale wegen en afval', 'Burgerlijke stand en bevolking', 'Verkiezingen', 'Stedenbouwkundige vergunningen', 'OCMW — sociale steun', 'Gemeentescholen'],
+      fr: ['Police locale et pompiers', 'Voiries locales et déchets', 'État civil et population', 'Élections', 'Permis d’urbanisme', 'CPAS — aide sociale', 'Écoles communales'],
+      en: ['Local police and fire service', 'Local roads and waste', 'Civil registry and population', 'Elections', 'Planning permission', 'CPAS/OCMW — social aid', 'Municipal schools'] },
+    funding: {
+      nl: 'Eigen belastingen (vooral de aanvullende personenbelasting) plus dotaties van het gewest.',
+      fr: 'Impôts propres (surtout la taxe additionnelle à l’IPP) et dotations de la région.',
+      en: 'Own taxes (mainly the additional income tax) plus transfers from the region.' },
+  },
+};
+</script>
+<script>globalThis.__DATA__={"2023":{"year":2023,"level":"federal","currency":"EUR","amount_basis":"payment appropriations (CL/VeK), financing operations excluded","total_spending":89715744000,"gross_before_exclusions":120583533000,"financing_excluded":30867789000,"provisional":false,"source":"data.gov.be fpsbosa-bb-budget-2023 (CC0)","generated_from":"exp_2023_ini.xlsx","sheet_used":"Expenses 2023 INI","tree":{"id":"root","label":{"nl":"Federale uitgaven","fr":"Dépenses fédérales","en":"Federal spending"},"amount":89715744000,"children":[{"id":"social_protection","label":{"nl":"Sociale bescherming","fr":"Protection sociale","en":"Social protection"},"amount":31246744000,"children":[{"label":{"nl":"FOD SOCIALE ZEKERHEID","fr":"SPF SECURITE SOCIALE"},"amount":29399476000},{"label":{"nl":"MAATSCHAPPELIJKE INTEGRATIE","fr":"INTEGRATION SOCIALE"},"amount":1847268000}]},{"id":"regions_communities","label":{"nl":"Gewesten & Gemeenschappen","fr":"Régions & Communautés","en":"Regions & Communities"},"amount":16705158000,"children":[{"label":{"nl":"Vlaamse Gemeenschap","fr":"Communauté flamande"},"amount":9873476000},{"label":{"nl":"Franse Gemeenschap","fr":"Communauté française"},"amount":5083932000},{"label":{"nl":"Gemeenschappelijke Gemeenschapscommissie","fr":"Commission communautaire commune"},"amount":1627690000},{"label":{"nl":"Duitstalige Gemeenschap","fr":"Communauté germanophone"},"amount":120060000}]},{"id":"debt_interest","label":{"nl":"Rente op de staatsschuld","fr":"Intérêts de la dette","en":"Debt interest"},"amount":8134582000,"children":[{"label":{"nl":"RIJKSSCHULD","fr":"DETTE PUBLIQUE"},"amount":8134582000}]},{"id":"finance_admin","label":{"nl":"Financiën & Overheid","fr":"Finances & Administration","en":"Finance & Administration"},"amount":6195417000,"children":[{"label":{"nl":"FOD BOSA","fr":"SPF BOSA"},"amount":3191870000},{"label":{"nl":"FINANCIEN","fr":"FINANCES"},"amount":2079156000},{"label":{"nl":"REGIE DER GEBOUWEN + OP. AMBT","fr":"REGIE DES BATIMENTS"},"amount":924391000}]},{"id":"foreign_eu","label":{"nl":"Buitenland & EU","fr":"Affaires étrangères & UE","en":"Foreign Affairs & EU"},"amount":5755118000,"children":[{"label":{"nl":"EUROPESE UNIE","fr":"UNION EUROPEENNE"},"amount":4090338000},{"label":{"nl":"BUIT. ZAKEN & ONTW.-SAMENWERK.","fr":"AFFAIRES ETRANGERES ET COOP."},"amount":1664780000}]},{"id":"defense","label":{"nl":"Defensie","fr":"Défense","en":"Defence"},"amount":4911344000,"children":[{"label":{"nl":"LANDSVERDEDIGING","fr":"DEFENSE NATIONALE"},"amount":4911344000}]},{"id":"security_interior","label":{"nl":"Veiligheid & Binnenland","fr":"Sécurité & Intérieur","en":"Security & Interior"},"amount":4551732000,"children":[{"label":{"nl":"FED. POLITIE & GEINT. WERKING","fr":"POLICE FED. & FONCT. INTEGRE"},"amount":2522958000},{"label":{"nl":"BINNENLANDSE ZAKEN","fr":"INTERIEUR"},"amount":2028774000}]},{"id":"mobility","label":{"nl":"Mobiliteit & Vervoer","fr":"Mobilité & Transports","en":"Mobility & Transport"},"amount":3991636000,"children":[{"label":{"nl":"FOD MOBILITEIT EN VERVOER","fr":"SPF MOBILITE ET TRANSPORTS"},"amount":3991636000}]},{"id":"economy_work_science","label":{"nl":"Economie, Werk & Wetenschap","fr":"Économie, Emploi & Science","en":"Economy, Work & Science"},"amount":3937786000,"children":[{"label":{"nl":"ECONOMIE","fr":"ECONOMIE"},"amount":3127695000},{"label":{"nl":"WETENSCHAPSBELEID","fr":"POLITIQUE SCIENTIFIQUE"},"amount":560278000},{"label":{"nl":"WERKGELEGENHEID, ARBEID & S.O.","fr":"EMPLOI, TRAVAIL & CONC. SOC."},"amount":249813000}]},{"id":"justice","label":{"nl":"Justitie","fr":"Justice","en":"Justice"},"amount":2533620000,"children":[{"label":{"nl":"JUSTITIE","fr":"JUSTICE"},"amount":2533620000}]},{"id":"health","label":{"nl":"Volksgezondheid","fr":"Santé publique","en":"Health"},"amount":1050910000,"children":[{"label":{"nl":"VOLKSGEZONDHEID","fr":"SANTE PUBLIQUE"},"amount":1050910000}]},{"id":"democratic_institutions","label":{"nl":"Democratische instellingen","fr":"Institutions démocratiques","en":"Democratic Institutions"},"amount":701697000,"children":[{"label":{"nl":"KANSELARIJ","fr":"CHANCELLERIE"},"amount":257447000},{"label":{"nl":"Kamer volksvertegenwoordigers","fr":"Chambre des représentants"},"amount":169364000},{"label":{"nl":"Rekenhof","fr":"Cour des comptes"},"amount":60402000},{"label":{"nl":"Financ. politieke partijen","fr":"Financ. partis politiques"},"amount":35540000},{"label":{"nl":"Senaat","fr":"Sénat"},"amount":35000000},{"label":{"nl":"Onafhankelijke organen.","fr":"Organes indépendants."},"amount":28284000},{"label":{"nl":"Activiteiten van de Koninklijke Familie","fr":"Activités de la Famille Royale"},"amount":24983000},{"label":{"nl":"Civiele Lijst","fr":"Liste civile"},"amount":14037000},{"label":{"nl":"Gegenvensbeschermingsautoriteit","fr":"Autorité protection données"},"amount":13269000},{"label":{"nl":"Grondwettelijk Hof","fr":"Cour constitutionnelle"},"amount":12040000},{"label":{"nl":"Bijzondere kredietlijn Forum","fr":"Ligne de crédit spéciale Forum"},"amount":11000000},{"label":{"nl":"Comité P","fr":"Comité P"},"amount":10750000},{"label":{"nl":"College federale ombudsmannen","fr":"Collège médiateurs fédéraux"},"amount":6706000},{"label":{"nl":"Hoge Raad voor de Justitie","fr":"Conseil sup. de la Justice"},"amount":6654000},{"label":{"nl":"Centrale Raad voor het Gevangeniswezen","fr":"Conseil central de surveillance pénitentiaire"},"amount":3398000},{"label":{"nl":"Comité I","fr":"Comité R"},"amount":3317000},{"label":{"nl":"Instituut rechten van de mens","fr":"Institut des droits humains"},"amount":2776000},{"label":{"nl":"Controleorgaan op de politionele informatie","fr":"Organe de contrôle de l'information policière"},"amount":1860000},{"label":{"nl":"Protocol met de regering","fr":"Protocole avec le gouvernement"},"amount":1200000},{"label":{"nl":"Commissie specifieke methoden (C-BIM)","fr":"Commission méthodes spécififiques (C-BIM)"},"amount":1167000},{"label":{"nl":"Dotatie aan Koning Albert II","fr":"Dotation au Roi Albert II"},"amount":1098000},{"label":{"nl":"Benoemingscommissies notariaat","fr":"Comm. nomination du notariat"},"amount":657000},{"label":{"nl":"Dotatie aan Prinses Astrid","fr":"Dotation à la Princesse Astrid"},"amount":382000},{"label":{"nl":"Dotatie aan Prins Laurent","fr":"Dotation au Prince Laurent"},"amount":366000}]}]}},"2024":{"year":2024,"level":"federal","currency":"EUR","amount_basis":"payment appropriations (CL/VeK), financing operations excluded","total_spending":98872215000,"gross_before_exclusions":161369202000,"financing_excluded":62496987000,"provisional":false,"source":"data.gov.be fpsbosa-bb-budget-2024 (CC0)","generated_from":"exp_2024_ini.xlsx","sheet_used":"BudgetOnline","tree":{"id":"root","label":{"nl":"Federale uitgaven","fr":"Dépenses fédérales","en":"Federal spending"},"amount":98872215000,"children":[{"id":"social_protection","label":{"nl":"Sociale bescherming","fr":"Protection sociale","en":"Social protection"},"amount":33193311000,"children":[{"label":{"nl":"FOD SOCIALE ZEKERHEID","fr":"SPF SÉCURITÉ SOCIALE"},"amount":31173457000},{"label":{"nl":"MAATSCHAPPELIJKE INTEGRATIE","fr":"INTÉGRATION SOCIALE"},"amount":2019854000}]},{"id":"regions_communities","label":{"nl":"Gewesten & Gemeenschappen","fr":"Régions & Communautés","en":"Regions & Communities"},"amount":16630485000,"children":[{"label":{"nl":"Vlaamse Gemeenschap","fr":"Communauté flamande"},"amount":9866062000},{"label":{"nl":"Franse Gemeenschap","fr":"Communauté française"},"amount":5036661000},{"label":{"nl":"Gemeenschappelijke Gemeenschapscommissie","fr":"Commission communautaire commune"},"amount":1605558000},{"label":{"nl":"Duitstalige Gemeenschap","fr":"Communauté germanophone"},"amount":122204000}]},{"id":"finance_admin","label":{"nl":"Financiën & Overheid","fr":"Finances & Administration","en":"Finance & Administration"},"amount":13241410000,"children":[{"label":{"nl":"FINANCIEN","fr":"FINANCES"},"amount":8960746000},{"label":{"nl":"FOD BOSA","fr":"SPF BOSA"},"amount":3309587000},{"label":{"nl":"REGIE DER GEBOUWEN + OP. AMBT","fr":"RÉGIE DES BÂTIMENTS"},"amount":971077000}]},{"id":"debt_interest","label":{"nl":"Rente op de staatsschuld","fr":"Intérêts de la dette","en":"Debt interest"},"amount":10123836000,"children":[{"label":{"nl":"RIJKSSCHULD","fr":"DETTE PUBLIQUE"},"amount":10123836000}]},{"id":"security_interior","label":{"nl":"Veiligheid & Binnenland","fr":"Sécurité & Intérieur","en":"Security & Interior"},"amount":5195305000,"children":[{"label":{"nl":"FED. POLITIE & GEINT. WERKING","fr":"POLICE FED. & FONCT. INTÉGRÉ"},"amount":2818305000},{"label":{"nl":"BINNENLANDSE ZAKEN","fr":"INTÉRIEUR"},"amount":2377000000}]},{"id":"defense","label":{"nl":"Defensie","fr":"Défense","en":"Defence"},"amount":5078276000,"children":[{"label":{"nl":"LANDSVERDEDIGING","fr":"DEFENSE NATIONALE"},"amount":5078276000}]},{"id":"foreign_eu","label":{"nl":"Buitenland & EU","fr":"Affaires étrangères & UE","en":"Foreign Affairs & EU"},"amount":4860545000,"children":[{"label":{"nl":"EUROPESE UNIE","fr":"UNION EUROPEENNE"},"amount":3139866000},{"label":{"nl":"BUIT. ZAKEN & ONTW.-SAMENWERK.","fr":"AFFAIRES ÉTRANGÈRES ET COOP."},"amount":1720679000}]},{"id":"mobility","label":{"nl":"Mobiliteit & Vervoer","fr":"Mobilité & Transports","en":"Mobility & Transport"},"amount":4394855000,"children":[{"label":{"nl":"FOD MOBILITEIT EN VERVOER","fr":"SPF MOBILITÉ ET TRANSPORTS"},"amount":4394855000}]},{"id":"justice","label":{"nl":"Justitie","fr":"Justice","en":"Justice"},"amount":2688466000,"children":[{"label":{"nl":"JUSTITIE","fr":"JUSTICE"},"amount":2688466000}]},{"id":"economy_work_science","label":{"nl":"Economie, Werk & Wetenschap","fr":"Économie, Emploi & Science","en":"Economy, Work & Science"},"amount":1627718000,"children":[{"label":{"nl":"ECONOMIE","fr":"ECONOMIE"},"amount":731708000},{"label":{"nl":"WETENSCHAPSBELEID","fr":"POLITIQUE SCIENTIFIQUE"},"amount":612950000},{"label":{"nl":"WERKGELEGENHEID, ARBEID & S.O.","fr":"EMPLOI, TRAVAIL & CONC. SOC."},"amount":283060000}]},{"id":"health","label":{"nl":"Volksgezondheid","fr":"Santé publique","en":"Health"},"amount":1105589000,"children":[{"label":{"nl":"VOLKSGEZONDHEID","fr":"SANTÉ PUBLIQUE"},"amount":1105589000}]},{"id":"democratic_institutions","label":{"nl":"Democratische instellingen","fr":"Institutions démocratiques","en":"Democratic Institutions"},"amount":732419000,"children":[{"label":{"nl":"KANSELARIJ","fr":"CHANCELLERIE"},"amount":233384000},{"label":{"nl":"Kamer volksvertegenwoordigers","fr":"Chambre des représentants"},"amount":185113000},{"label":{"nl":"Rekenhof","fr":"Cour des comptes"},"amount":64644000},{"label":{"nl":"Senaat","fr":"Sénat"},"amount":44600000},{"label":{"nl":"Onafhankelijke organen.","fr":"Organes indépendants."},"amount":40706000},{"label":{"nl":"Financ. politieke partijen","fr":"Financ. partis politiques"},"amount":36500000},{"label":{"nl":"Activiteiten van de Koninklijke Familie","fr":"Activités de la Famille Royale"},"amount":26422000},{"label":{"nl":"Civiele Lijst","fr":"Liste civile"},"amount":14896000},{"label":{"nl":"Gegenvensbeschermingsautoriteit","fr":"Autorité protection données"},"amount":14002000},{"label":{"nl":"Grondwettelijk Hof","fr":"Cour constitutionnelle"},"amount":13019000},{"label":{"nl":"Comité P","fr":"Comité P"},"amount":11985000},{"label":{"nl":"Bijzondere kredietlijn Forum","fr":"Ligne de crédit spéciale Forum"},"amount":11000000},{"label":{"nl":"College federale ombudsmannen","fr":"Collège médiateurs fédéraux"},"amount":7367000},{"label":{"nl":"Hoge Raad voor de Justitie","fr":"Conseil sup. de la Justice"},"amount":6940000},{"label":{"nl":"Comité I","fr":"Comité R"},"amount":4764000},{"label":{"nl":"Centrale Raad voor het Gevangeniswezen","fr":"Conseil central de surveillance pénitentiaire"},"amount":4282000},{"label":{"nl":"Instituut rechten van de mens","fr":"Institut des droits humains"},"amount":4111000},{"label":{"nl":"Huis der Parlementsleden","fr":"Maison des parlementaires"},"amount":3000000},{"label":{"nl":"Controleorgaan op de politionele informatie","fr":"Organe de contrôle de l'information policière"},"amount":1600000},{"label":{"nl":"Protocol met de regering","fr":"Protocole avec le gouvernement"},"amount":1200000},{"label":{"nl":"Dotatie aan Koning Albert II","fr":"Dotation au Roi Albert II"},"amount":1165000},{"label":{"nl":"Benoemingscommissies notariaat","fr":"Comm. nomination du notariat"},"amount":503000},{"label":{"nl":"Dotatie aan Prinses Astrid","fr":"Dotation à la Princesse Astrid"},"amount":404000},{"label":{"nl":"Dotatie aan Prins Laurent","fr":"Dotation au Prince Laurent"},"amount":388000},{"label":{"nl":"Commissie specifieke methoden (C-BIM)","fr":"Commission méthodes spécififiques (C-BIM)"},"amount":274000},{"label":{"nl":"Federale Deontologische Commissie","fr":"Commission fédérale de déontologie"},"amount":150000}]}]}},"2025":{"year":2025,"level":"federal","currency":"EUR","amount_basis":"payment appropriations (CL/VeK), financing operations excluded","total_spending":24318727000,"gross_before_exclusions":49878122000,"financing_excluded":25559395000,"provisional":true,"source":"data.gov.be fpsbosa-bb-budget-2025 (CC0)","generated_from":"exp_2025_c7.xlsx","sheet_used":"BudgetOnline","tree":{"id":"root","label":{"nl":"Federale uitgaven","fr":"Dépenses fédérales","en":"Federal spending"},"amount":24318727000,"children":[{"id":"social_protection","label":{"nl":"Sociale bescherming","fr":"Protection sociale","en":"Social protection"},"amount":8712489000,"children":[{"label":{"nl":"FOD SOCIALE ZEKERHEID","fr":"SPF SÉCURITÉ SOCIALE"},"amount":8198491000},{"label":{"nl":"MAATSCHAPPELIJKE INTEGRATIE","fr":"INTÉGRATION SOCIALE"},"amount":513998000}]},{"id":"regions_communities","label":{"nl":"Gewesten & Gemeenschappen","fr":"Régions & Communautés","en":"Regions & Communities"},"amount":4236293000,"children":[{"label":{"nl":"Vlaamse Gemeenschap","fr":"Communauté flamande"},"amount":2523129000},{"label":{"nl":"Franse Gemeenschap","fr":"Communauté française"},"amount":1275942000},{"label":{"nl":"Gemeenschappelijke Gemeenschapscommissie","fr":"Commission communautaire commune"},"amount":406392000},{"label":{"nl":"Duitstalige Gemeenschap","fr":"Communauté germanophone"},"amount":30830000}]},{"id":"debt_interest","label":{"nl":"Rente op de staatsschuld","fr":"Intérêts de la dette","en":"Debt interest"},"amount":2859925000,"children":[{"label":{"nl":"RIJKSSCHULD","fr":"DETTE PUBLIQUE"},"amount":2859925000}]},{"id":"defense","label":{"nl":"Defensie","fr":"Défense","en":"Defence"},"amount":1590569000,"children":[{"label":{"nl":"LANDSVERDEDIGING","fr":"DEFENSE NATIONALE"},"amount":1590569000}]},{"id":"foreign_eu","label":{"nl":"Buitenland & EU","fr":"Affaires étrangères & UE","en":"Foreign Affairs & EU"},"amount":1555364000,"children":[{"label":{"nl":"EUROPESE UNIE","fr":"UNION EUROPEENNE"},"amount":1095586000},{"label":{"nl":"BUIT. ZAKEN & ONTW.-SAMENWERK.","fr":"AFFAIRES ÉTRANGÈRES ET COOP."},"amount":459778000}]},{"id":"finance_admin","label":{"nl":"Financiën & Overheid","fr":"Finances & Administration","en":"Finance & Administration"},"amount":1380162000,"children":[{"label":{"nl":"FINANCIEN","fr":"FINANCES"},"amount":564403000},{"label":{"nl":"FOD BOSA","fr":"SPF BOSA"},"amount":559275000},{"label":{"nl":"REGIE DER GEBOUWEN + OP. AMBT","fr":"RÉGIE DES BÂTIMENTS"},"amount":256484000}]},{"id":"security_interior","label":{"nl":"Veiligheid & Binnenland","fr":"Sécurité & Intérieur","en":"Security & Interior"},"amount":1243733000,"children":[{"label":{"nl":"FED. POLITIE & GEINT. WERKING","fr":"POLICE FED. & FONCT. INTÉGRÉ"},"amount":650876000},{"label":{"nl":"BINNENLANDSE ZAKEN","fr":"INTÉRIEUR"},"amount":592857000}]},{"id":"mobility","label":{"nl":"Mobiliteit & Vervoer","fr":"Mobilité & Transports","en":"Mobility & Transport"},"amount":1220511000,"children":[{"label":{"nl":"FOD MOBILITEIT EN VERVOER","fr":"SPF MOBILITÉ ET TRANSPORTS"},"amount":1220511000}]},{"id":"justice","label":{"nl":"Justitie","fr":"Justice","en":"Justice"},"amount":693212000,"children":[{"label":{"nl":"JUSTITIE","fr":"JUSTICE"},"amount":693212000}]},{"id":"economy_work_science","label":{"nl":"Economie, Werk & Wetenschap","fr":"Économie, Emploi & Science","en":"Economy, Work & Science"},"amount":368118000,"children":[{"label":{"nl":"WETENSCHAPSBELEID","fr":"POLITIQUE SCIENTIFIQUE"},"amount":152623000},{"label":{"nl":"ECONOMIE","fr":"ECONOMIE"},"amount":144024000},{"label":{"nl":"WERKGELEGENHEID, ARBEID & S.O.","fr":"EMPLOI, TRAVAIL & CONC. SOC."},"amount":71471000}]},{"id":"health","label":{"nl":"Volksgezondheid","fr":"Santé publique","en":"Health"},"amount":292568000,"children":[{"label":{"nl":"VOLKSGEZONDHEID","fr":"SANTÉ PUBLIQUE"},"amount":292568000}]},{"id":"democratic_institutions","label":{"nl":"Democratische instellingen","fr":"Institutions démocratiques","en":"Democratic Institutions"},"amount":165783000,"children":[{"label":{"nl":"Kamer volksvertegenwoordigers","fr":"Chambre des représentants"},"amount":46256000},{"label":{"nl":"KANSELARIJ","fr":"CHANCELLERIE"},"amount":41223000},{"label":{"nl":"Rekenhof","fr":"Cour des comptes"},"amount":16141000},{"label":{"nl":"Senaat","fr":"Sénat"},"amount":10968000},{"label":{"nl":"Onafhankelijke organen.","fr":"Organes indépendants."},"amount":9556000},{"label":{"nl":"Financ. politieke partijen","fr":"Financ. partis politiques"},"amount":9308000},{"label":{"nl":"Activiteiten van de Koninklijke Familie","fr":"Activités de la Famille Royale"},"amount":6867000},{"label":{"nl":"Civiele Lijst","fr":"Liste civile"},"amount":3799000},{"label":{"nl":"Grondwettelijk Hof","fr":"Cour constitutionnelle"},"amount":3394000},{"label":{"nl":"Comité P","fr":"Comité P"},"amount":3199000},{"label":{"nl":"Gegenvensbeschermingsautoriteit","fr":"Autorité protection données"},"amount":3168000},{"label":{"nl":"Bijzondere kredietlijn Forum","fr":"Ligne de crédit spéciale Forum"},"amount":2750000},{"label":{"nl":"College federale ombudsmannen","fr":"Collège médiateurs fédéraux"},"amount":1730000},{"label":{"nl":"Hoge Raad voor de Justitie","fr":"Conseil sup. de la Justice"},"amount":1729000},{"label":{"nl":"Centrale Raad voor het Gevangeniswezen","fr":"Conseil central de surveillance pénitentiaire"},"amount":1430000},{"label":{"nl":"Comité I","fr":"Comité R"},"amount":1295000},{"label":{"nl":"Instituut rechten van de mens","fr":"Institut des droits humains"},"amount":943000},{"label":{"nl":"Huis der Parlementsleden","fr":"Maison des parlementaires"},"amount":500000},{"label":{"nl":"Controleorgaan op de politionele informatie","fr":"Organe de contrôle de l'information policière"},"amount":351000},{"label":{"nl":"Protocol met de regering","fr":"Protocole avec le gouvernement"},"amount":300000},{"label":{"nl":"Dotatie aan Koning Albert II","fr":"Dotation au Roi Albert II"},"amount":297000},{"label":{"nl":"Commissie specifieke methoden (C-BIM)","fr":"Commission méthodes spécififiques (C-BIM)"},"amount":194000},{"label":{"nl":"Benoemingscommissies notariaat","fr":"Comm. nomination du notariat"},"amount":181000},{"label":{"nl":"Dotatie aan Prinses Astrid","fr":"Dotation à la Princesse Astrid"},"amount":104000},{"label":{"nl":"Dotatie aan Prins Laurent","fr":"Dotation au Prince Laurent"},"amount":100000}]}]}}};</script>
+<script>globalThis.__COMMUNES__={
+"Aalst": 7.5,
+"Aalter": 5.6,
+"Aarschot": 8.0,
+"Aartselaar": 4.9,
+"Affligem": 7.0,
+"Aiseau-Presles": 8.5,
+"Alken": 7.0,
+"Alveringem": 8.0,
+"Amay": 8.5,
+"Amel": 6.0,
+"Andenne": 8.6,
+"Anderlecht": 5.5,
+"Anderlues": 8.8,
+"Anhée": 8.5,
+"Ans": 8.5,
+"Anthisnes": 8.5,
+"Antoing": 7.0,
+"Antwerpen": 7.0,
+"Anzegem": 8.0,
+"Ardooie": 6.0,
+"Arendonk": 7.0,
+"Arlon": 7.0,
+"As": 7.5,
+"Asse": 6.9,
+"Assenede": 7.0,
+"Assesse": 8.5,
+"Ath": 8.8,
+"Attert": 7.0,
+"Aubange": 8.0,
+"Aubel": 7.7,
+"Auderghem": 6.0,
+"Avelgem": 7.0,
+"Awans": 8.5,
+"Aywaille": 8.5,
+"Baarle-Hertog": 7.2,
+"Baelen": 7.7,
+"Balen": 8.0,
+"Bassenge": 8.0,
+"Bastogne": 7.0,
+"Beaumont": 8.8,
+"Beauraing": 8.0,
+"Beauvechain": 7.0,
+"Beernem": 7.8,
+"Beerse": 6.9,
+"Beersel": 6.8,
+"Begijnendijk": 8.0,
+"Bekkevoort": 7.6,
+"Beloeil": 8.5,
+"Berchem-Sainte-Agathe": 6.5,
+"Beringen": 7.6,
+"Berlaar": 7.8,
+"Berlare": 7.0,
+"Berloz": 8.5,
+"Bernissart": 8.5,
+"Bertem": 7.5,
+"Bertogne": 7.0,
+"Bertrix": 8.0,
+"Bever": 8.0,
+"Beveren": 5.0,
+"Beyne-Heusay": 8.5,
+"Bierbeek": 7.0,
+"Bièvre": 6.0,
+"Bilzen": 7.9,
+"Binche": 8.0,
+"Blankenberge": 6.0,
+"Blégny": 8.5,
+"Bocholt": 8.0,
+"Boechout": 6.9,
+"Bonheiden": 7.5,
+"Boom": 7.9,
+"Boortmeerbeek": 5.8,
+"Borgloon": 7.9,
+"Bornem": 7.3,
+"Borsbeek": 7.0,
+"Bouillon": 8.0,
+"Boussu": 8.5,
+"Boutersem": 7.6,
+"Braine-l'Alleud": 5.5,
+"Braine-le-Château": 8.0,
+"Braine-le-Comte": 8.8,
+"Braives": 8.0,
+"Brakel": 8.0,
+"Brasschaat": 6.0,
+"Brecht": 7.0,
+"Bredene": 7.0,
+"Bree": 8.0,
+"Brugelette": 8.5,
+"Brugge": 6.9,
+"Brunehaut": 8.2,
+"Bruxelles": 6.0,
+"Buggenhout": 7.8,
+"Büllingen": 6.0,
+"Burdinne": 8.0,
+"Burg-Reuland": 7.0,
+"Bütgenbach": 6.0,
+"Celles": 8.2,
+"Cerfontaine": 6.0,
+"Chapelle-lez-Herlaimont": 8.8,
+"Charleroi": 8.5,
+"Chastre": 8.0,
+"Châtelet": 8.0,
+"Chaudfontaine": 8.0,
+"Chaumont-Gistoux": 8.0,
+"Chièvres": 8.8,
+"Chimay": 8.0,
+"Chiny": 8.0,
+"Ciney": 8.0,
+"Clavier": 8.5,
+"Colfontaine": 8.5,
+"Comblain-au-Pont": 8.5,
+"Comines-Warneton": 7.5,
+"Courcelles": 8.8,
+"Court-Saint-Etienne": 8.0,
+"Couvin": 8.5,
+"Crisnée": 8.0,
+"Dalhem": 7.5,
+"Damme": 8.0,
+"Daverdisse": 6.0,
+"De Haan": 5.0,
+"De Panne": 0.0,
+"De Pinte": 6.9,
+"Deerlijk": 8.0,
+"Deinze": 6.9,
+"Denderleeuw": 7.3,
+"Dendermonde": 7.8,
+"Dentergem": 7.5,
+"Dessel": 6.0,
+"Destelbergen": 6.9,
+"Diepenbeek": 8.0,
+"Diest": 7.9,
+"Diksmuide": 8.0,
+"Dilbeek": 6.9,
+"Dilsen-Stokkem": 8.0,
+"Dinant": 8.8,
+"Dison": 7.9,
+"Doische": 8.0,
+"Donceel": 8.8,
+"Dour": 8.4,
+"Drogenbos": 7.0,
+"Duffel": 6.5,
+"Durbuy": 8.0,
+"Ecaussinnes": 7.6,
+"Edegem": 6.6,
+"Eeklo": 7.7,
+"Eghezée": 7.5,
+"Ellezelles": 8.0,
+"Enghien": 8.2,
+"Engis": 8.0,
+"Erezée": 8.0,
+"Erpe-Mere": 7.0,
+"Erquelinnes": 8.5,
+"Esneux": 8.5,
+"Essen": 7.5,
+"Estaimpuis": 8.8,
+"Estinnes": 8.5,
+"Etalle": 6.0,
+"Etterbeek": 6.0,
+"Eupen": 8.0,
+"Evere": 6.5,
+"Evergem": 7.9,
+"Faimes": 8.8,
+"Farciennes": 8.8,
+"Fauvillers": 7.0,
+"Fernelmont": 7.5,
+"Ferrières": 8.5,
+"Fexhe-le-Haut-Clocher": 8.8,
+"Flémalle": 8.0,
+"Fléron": 8.5,
+"Fleurus": 8.0,
+"Flobecq": 8.0,
+"Floreffe": 8.3,
+"Florennes": 8.5,
+"Florenville": 8.0,
+"Fontaine-l'Evêque": 8.8,
+"Forest": 7.0,
+"Fosses-la-Ville": 8.5,
+"Frameries": 8.6,
+"Frasnes-lez-Anvaing": 7.0,
+"Froidchapelle": 8.0,
+"Galmaarden": 7.5,
+"Ganshoren": 6.5,
+"Gavere": 7.3,
+"Gedinne": 6.5,
+"Geel": 7.0,
+"Geer": 7.7,
+"Geetbets": 8.0,
+"Gembloux": 7.8,
+"Genappe": 7.5,
+"Genk": 7.5,
+"Gent": 6.5,
+"Geraardsbergen": 7.8,
+"Gerpinnes": 8.0,
+"Gesves": 8.5,
+"Gingelom": 8.0,
+"Gistel": 7.2,
+"Glabbeek": 8.0,
+"Gooik": 7.3,
+"Gouvy": 8.0,
+"Grâce-Hollogne": 8.0,
+"Grez-Doiceau": 6.9,
+"Grimbergen": 6.8,
+"Grobbendonk": 7.5,
+"Haacht": 6.7,
+"Haaltert": 7.2,
+"Habay": 7.3,
+"Halen": 8.0,
+"Halle": 7.1,
+"Ham": 7.0,
+"Hamme": 8.0,
+"Hamoir": 8.8,
+"Hamois": 8.0,
+"Hamont-Achel": 6.0,
+"Ham-sur-Heure-Nalinnes": 8.0,
+"Hannut": 8.5,
+"Harelbeke": 7.5,
+"Hasselt": 7.0,
+"Hastière": 8.0,
+"Havelange": 8.8,
+"Hechtel-Eksel": 8.0,
+"Heers": 7.5,
+"Heist-op-den-Berg": 7.5,
+"Hélécine": 8.8,
+"Hemiksem": 7.5,
+"Hensies": 8.5,
+"Herbeumont": 7.0,
+"Herent": 7.7,
+"Herentals": 7.2,
+"Herenthout": 7.5,
+"Herk-de-Stad": 7.0,
+"Herne": 7.9,
+"Héron": 8.2,
+"Herselt": 7.3,
+"Herstal": 8.5,
+"Herstappe": 5.0,
+"Herve": 8.0,
+"Herzele": 6.9,
+"Heusden-Zolder": 7.5,
+"Heuvelland": 8.0,
+"Hoegaarden": 7.5,
+"Hoeilaart": 6.8,
+"Hoeselt": 8.5,
+"Holsbeek": 7.0,
+"Honnelles": 8.2,
+"Hooglede": 8.0,
+"Hoogstraten": 6.0,
+"Horebeke": 7.0,
+"Hotton": 8.5,
+"Houffalize": 7.0,
+"Houthalen-Helchteren": 8.0,
+"Houthulst": 7.5,
+"Houyet": 8.0,
+"Hove": 7.5,
+"Huldenberg": 8.0,
+"Hulshout": 7.0,
+"Huy": 8.0,
+"Ichtegem": 7.7,
+"Ieper": 8.0,
+"Incourt": 7.0,
+"Ingelmunster": 8.0,
+"Ittre": 7.9,
+"Ixelles": 7.5,
+"Izegem": 7.0,
+"Jabbeke": 7.7,
+"Jalhay": 6.8,
+"Jemeppe-sur-Sambre": 6.0,
+"Jette": 6.4,
+"Jodoigne": 8.0,
+"Juprelle": 7.5,
+"Jurbise": 8.5,
+"Kalmthout": 7.5,
+"Kampenhout": 7.0,
+"Kapellen": 5.5,
+"Kapelle-op-den-Bos": 7.8,
+"Kaprijke": 7.5,
+"Kasterlee": 7.0,
+"Keerbergen": 6.5,
+"Kelmis": 6.9,
+"Kinrooi": 6.0,
+"Kluisbergen": 6.5,
+"Knokke-Heist": 0.0,
+"Koekelare": 7.0,
+"Koekelberg": 6.0,
+"Koksijde": 0.0,
+"Kontich": 5.7,
+"Kortemark": 8.5,
+"Kortenaken": 7.8,
+"Kortenberg": 7.9,
+"Kortessem": 8.5,
+"Kortrijk": 7.9,
+"Kraainem": 7.5,
+"Kruibeke": 8.0,
+"Kruisem": 7.5,
+"Kuurne": 7.9,
+"La Bruyère": 8.0,
+"La Hulpe": 6.3,
+"La Louvière": 8.8,
+"La Roche-en-Ardenne": 8.0,
+"Laakdal": 7.5,
+"Laarne": 7.8,
+"Lanaken": 6.9,
+"Landen": 7.9,
+"Langemark-Poelkapelle": 8.0,
+"Lasne": 5.8,
+"Le Roeulx": 8.5,
+"Lebbeke": 7.5,
+"Lede": 7.9,
+"Ledegem": 7.5,
+"Léglise": 6.5,
+"Lendelede": 8.0,
+"Lennik": 8.5,
+"Lens": 8.0,
+"Leopoldsburg": 8.0,
+"Les-Bons-Villers": 8.0,
+"Lessines": 8.8,
+"Leuven": 6.7,
+"Leuze-en-Hainaut": 8.8,
+"Libin": 7.3,
+"Libramont-Chevigny": 7.5,
+"Lichtervelde": 7.5,
+"Liedekerke": 7.8,
+"Liège": 8.0,
+"Lier": 7.9,
+"Lierde": 7.3,
+"Lierneux": 7.5,
+"Lievegem": 7.0,
+"Lille": 6.5,
+"Limbourg": 8.2,
+"Lincent": 8.0,
+"Linkebeek": 7.8,
+"Lint": 8.0,
+"Linter": 8.0,
+"Lobbes": 8.0,
+"Lochristi": 6.9,
+"Lokeren": 6.5,
+"Lommel": 6.0,
+"Londerzeel": 7.9,
+"Lontzen": 6.8,
+"Lo-Reninge": 7.7,
+"Lubbeek": 7.5,
+"Lummen": 6.7,
+"Maarkedal": 7.0,
+"Maaseik": 8.5,
+"Maasmechelen": 7.9,
+"Machelen": 5.0,
+"Maldegem": 6.9,
+"Malle": 7.0,
+"Malmedy": 7.0,
+"Manage": 8.0,
+"Manhay": 6.5,
+"Marche-en-Famenne": 8.0,
+"Marchin": 8.8,
+"Martelange": 7.0,
+"Mechelen": 6.8,
+"Meerhout": 8.0,
+"Meise": 7.9,
+"Meix-devant-Virton": 8.0,
+"Melle": 7.5,
+"Menen": 8.0,
+"Merbes-le-Château": 8.1,
+"Merchtem": 7.1,
+"Merelbeke": 7.7,
+"Merksplas": 6.5,
+"Mesen": 9.0,
+"Messancy": 7.0,
+"Mettet": 8.0,
+"Meulebeke": 7.5,
+"Middelkerke": 3.0,
+"Modave": 8.0,
+"Moerbeke": 7.0,
+"Mol": 7.7,
+"Molenbeek-Saint-Jean": 6.3,
+"Momignies": 8.5,
+"Mons": 8.0,
+"Mont-de-l'Enclus": 8.0,
+"Montigny-le-Tilleul": 8.0,
+"Mont-Saint-Guibert": 7.5,
+"Moorslede": 8.0,
+"Morlanwelz": 8.0,
+"Mortsel": 6.5,
+"Mouscron": 8.8,
+"Musson": 7.0,
+"Namur": 8.5,
+"Nandrin": 8.5,
+"Nassogne": 8.0,
+"Nazareth": 6.9,
+"Neufchâteau": 7.3,
+"Neupré": 8.0,
+"Niel": 8.0,
+"Nieuwerkerken": 7.7,
+"Nieuwpoort": 5.0,
+"Nijlen": 7.0,
+"Ninove": 7.5,
+"Nivelles": 7.0,
+"Ohey": 8.3,
+"Olen": 6.0,
+"Olne": 7.2,
+"Onhaye": 8.0,
+"Oostende": 6.5,
+"Oosterzele": 7.8,
+"Oostkamp": 8.0,
+"Oostrozebeke": 7.5,
+"Opwijk": 7.8,
+"Oreye": 6.9,
+"Orp-Jauche": 8.0,
+"Ottignies-Louvain-La-Neuve": 7.7,
+"Oudenaarde": 7.0,
+"Oudenburg": 7.7,
+"Oud-Heverlee": 6.5,
+"Oudsbergen": 6.5,
+"Oud-Turnhout": 7.0,
+"Ouffet": 8.0,
+"Oupeye": 8.0,
+"Overijse": 7.3,
+"Paliseul": 8.0,
+"Pecq": 8.8,
+"Peer": 8.0,
+"Pelt": 6.0,
+"Pepingen": 7.5,
+"Pepinster": 8.5,
+"Péruwelz": 8.5,
+"Perwez": 7.5,
+"Philippeville": 8.0,
+"Pittem": 7.5,
+"Plombières": 7.3,
+"Pont-à-Celles": 8.0,
+"Poperinge": 8.0,
+"Profondeville": 8.0,
+"Putte": 7.5,
+"Puurs-Sint-Amands": 7.3,
+"Quaregnon": 8.5,
+"Quévy": 8.5,
+"Quiévrain": 8.8,
+"Raeren": 7.5,
+"Ramillies": 7.5,
+"Ranst": 6.5,
+"Ravels": 6.0,
+"Rebecq": 8.5,
+"Remicourt": 8.0,
+"Rendeux": 7.7,
+"Retie": 7.3,
+"Riemst": 8.0,
+"Rijkevorsel": 7.4,
+"Rixensart": 6.6,
+"Rochefort": 8.5,
+"Roeselare": 8.5,
+"Ronse": 8.0,
+"Roosdaal": 7.5,
+"Rotselaar": 6.5,
+"Rouvroy": 6.0,
+"Ruiselede": 6.5,
+"Rumes": 8.5,
+"Rumst": 6.5,
+"Sainte-Ode": 8.0,
+"Saint-Georges-sur-Meuse": 8.0,
+"Saint-Ghislain": 7.9,
+"Saint-Gilles": 6.3,
+"Saint-Hubert": 8.0,
+"Saint-Josse-ten-Noode": 6.5,
+"Saint-Léger": 7.0,
+"Saint-Nicolas": 8.5,
+"Sambreville": 8.0,
+"Sankt Vith": 6.0,
+"Schaerbeek": 4.6,
+"Schelle": 6.0,
+"Scherpenheuvel-Zichem": 8.0,
+"Schilde": 5.0,
+"Schoten": 6.5,
+"Seneffe": 8.0,
+"Seraing": 8.5,
+"Silly": 7.8,
+"Sint-Genesius-Rode": 6.0,
+"Sint-Gillis-Waas": 7.9,
+"Sint-Katelijne-Waver": 7.1,
+"Sint-Laureins": 7.0,
+"Sint-Lievens-Houtem": 7.9,
+"Sint-Martens-Latem": 5.5,
+"Sint-Niklaas": 7.5,
+"Sint-Pieters-Leeuw": 7.4,
+"Sint-Truiden": 8.0,
+"Sivry-Rance": 8.8,
+"Soignies": 8.0,
+"Sombreffe": 8.0,
+"Somme-Leuze": 7.9,
+"Soumagne": 8.4,
+"Spa": 7.5,
+"Spiere-Helkijn": 7.0,
+"Sprimont": 8.5,
+"Stabroek": 6.5,
+"Staden": 8.0,
+"Stavelot": 8.5,
+"Steenokkerzeel": 6.7,
+"Stekene": 8.0,
+"Stoumont": 8.0,
+"Tellin": 8.0,
+"Temse": 8.0,
+"Tenneville": 7.0,
+"Ternat": 6.9,
+"Tervuren": 6.7,
+"Tessenderlo": 7.0,
+"Theux": 7.1,
+"Thimister-Clermont": 7.5,
+"Thuin": 8.5,
+"Tielt": 7.5,
+"Tielt-Winge": 7.9,
+"Tienen": 7.6,
+"Tinlot": 8.0,
+"Tintigny": 6.0,
+"Tongeren": 7.9,
+"Torhout": 8.0,
+"Tournai": 8.8,
+"Tremelo": 7.0,
+"Trois-Ponts": 8.0,
+"Trooz": 8.5,
+"Tubize": 8.0,
+"Turnhout": 7.5,
+"Uccle": 5.7,
+"Vaux-sur-Sûre": 7.0,
+"Verlaine": 7.8,
+"Verviers": 8.5,
+"Veurne": 7.0,
+"Vielsalm": 8.8,
+"Villers-la-Ville": 8.0,
+"Villers-le-Bouillet": 8.4,
+"Vilvoorde": 7.2,
+"Viroinval": 8.5,
+"Virton": 7.5,
+"Visé": 8.8,
+"Vleteren": 7.0,
+"Voeren": 7.5,
+"Vorselaar": 7.5,
+"Vosselaar": 7.5,
+"Vresse-sur-Semois": 6.0,
+"Waasmunster": 7.4,
+"Wachtebeke": 8.5,
+"Waimes": 7.5,
+"Walcourt": 8.0,
+"Walhain": 8.5,
+"Wanze": 7.9,
+"Waregem": 6.8,
+"Waremme": 8.5,
+"Wasseiges": 8.0,
+"Waterloo": 5.7,
+"Watermael-Boitsfort": 7.0,
+"Wavre": 6.8,
+"Welkenraedt": 7.9,
+"Wellen": 7.8,
+"Wellin": 7.8,
+"Wemmel": 7.3,
+"Wervik": 8.0,
+"Westerlo": 7.0,
+"Wetteren": 7.5,
+"Wevelgem": 6.8,
+"Wezembeek-Oppem": 7.2,
+"Wichelen": 7.5,
+"Wielsbeke": 7.5,
+"Wijnegem": 5.5,
+"Willebroek": 7.4,
+"Wingene": 7.8,
+"Woluwe-Saint-Lambert": 5.4,
+"Woluwe-Saint-Pierre": 6.0,
+"Wommelgem": 5.0,
+"Wortegem-Petegem": 7.7,
+"Wuustwezel": 7.0,
+"Yvoir": 8.0,
+"Zandhoven": 7.0,
+"Zaventem": 5.0,
+"Zedelgem": 8.0,
+"Zele": 7.8,
+"Zelzate": 7.5,
+"Zemst": 7.0,
+"Zoersel": 6.5,
+"Zonhoven": 8.0,
+"Zonnebeke": 8.0,
+"Zottegem": 7.5,
+"Zoutleeuw": 8.3,
+"Zuienkerke": 7.0,
+"Zulte": 5.9,
+"Zutendaal": 8.0,
+"Zwalm": 6.9,
+"Zwevegem": 7.5,
+"Zwijndrecht": 2.5
+};</script>
+<script>// Waar gaat mijn belastinggeld naartoe — static, hash-routed, zero runtime deps.
+const POPULATION = 11_700_000;
+const YEARS = [2023, 2024, 2025];
+
+const FN_COLOR = {
+  social_protection: '#c8102e', regions_communities: '#1d3461', finance_admin: '#e0a200',
+  debt_interest: '#4a4a4a', security_interior: '#1f6fce', defense: '#4c6663',
+  foreign_eu: '#7a5195', mobility: '#007068', justice: '#a83d77',
+  economy_work_science: '#2f7a34', health: '#ff764a', democratic_institutions: '#5f5f5f',
+};
+const LIGHT = new Set(['finance_admin', 'health']);
+const FN_ICON = {
+  social_protection: 'heart-handshake', health: 'stethoscope', regions_communities: 'map',
+  debt_interest: 'percent', defense: 'shield', justice: 'scale', security_interior: 'siren',
+  mobility: 'train-front', finance_admin: 'banknote', foreign_eu: 'globe',
+  economy_work_science: 'briefcase', democratic_institutions: 'landmark',
+};
+const ICONS = globalThis.ICONS || {};
+const CONTENT = globalThis.CONTENT || {};
+const LEVELS = globalThis.LEVELS || {};
+const LEVEL_IDS = ['federal', 'region', 'community', 'commune'];
+
+const SOURCES = [
+  { name: 'data.gov.be — Federal budget (FPS BOSA)', url: 'https://data.gov.be/en/datasets/fpsbosa-bb-budget-2024', lic: 'CC0', desc: { nl: 'De federale begroting per departement (treemap, thema’s).', fr: 'Le budget fédéral par département (treemap, thèmes).', en: 'The federal budget by department (treemap, themes).' } },
+  { name: 'FPS Finance — Federally collected tax revenues', url: 'https://finance.belgium.be/en/figures_and_analysis/figures', lic: 'CC0', desc: { nl: 'Federaal geïnde belastingen (btw, accijnzen).', fr: 'Impôts perçus au fédéral (TVA, accises).', en: 'Federally collected taxes (VAT, excise).' } },
+  { name: 'FPS Finance — Municipal tax rates 2024', url: 'https://finance.belgium.be/sites/default/files/downloads/111-municipal-tax-rate-2024.pdf', lic: 'PDF', desc: { nl: 'Aanvullende gemeentebelasting per gemeente (581).', fr: 'Taxe communale additionnelle par commune (581).', en: 'Additional communal tax rate per commune (581).' } },
+  { name: 'Statbel — Open data', url: 'https://statbel.fgov.be/en/open-data', lic: 'CC BY 4.0', desc: { nl: 'Bevolking en inkomensstatistieken.', fr: 'Population et statistiques de revenus.', en: 'Population and income statistics.' } },
+  { name: 'Open Data Wallonie-Bruxelles (ODWB)', url: 'https://www.odwb.be/', lic: 'CC BY', desc: { nl: 'Waalse gemeentebegrotingen (gepland, Fase 3).', fr: 'Budgets communaux wallons (prévu, Phase 3).', en: 'Walloon municipal budgets (planned, Phase 3).' } },
+  { name: 'belgium.be — Government & competences', url: 'https://www.belgium.be/en/about_belgium/government', lic: 'gov', desc: { nl: 'Bevoegdheden per overheidsniveau.', fr: 'Compétences par niveau de pouvoir.', en: 'Competences by level of government.' } },
+  { name: 'data.gov.be — Open data portal', url: 'https://data.gov.be/en', lic: 'portal', desc: { nl: 'Belgisch federaal open-dataportaal.', fr: 'Portail fédéral belge des données ouvertes.', en: 'Belgian federal open-data portal.' } },
+  { name: 'Lucide — Icons', url: 'https://lucide.dev', lic: 'ISC', desc: { nl: 'De iconen in deze app.', fr: 'Les icônes de cette app.', en: 'The icons in this app.' } },
+];
+
+const I18N = {
+  nl: {
+    skip: 'Naar inhoud', title: 'Waar gaat mijn belastinggeld naartoe?',
+    nav_home: 'Start', nav_budget: 'Begroting', nav_compare: 'Vergelijk', nav_you: 'Jij', nav_about: 'Info',
+    compare_h: 'Vergelijk jaren', compare_sub: 'Verandering per thema tussen twee jaren.',
+    compare_from: 'Van', compare_to: 'Naar', compare_total: 'Totale uitgaven',
+    compare_caveat: '⚠️ Grote verschuivingen kunnen door herklassering tussen departementen komen, niet door beleid. Vergelijk met voorzichtigheid.',
+    compare_unreliable: '⚠️ Een voorlopig jaar (2025) is onvolledig — de vergelijking is niet betrouwbaar.',
+    provisional_badge: 'voorlopig',
+    provisional_banner: '⚠️ 2025 is een voorlopige begroting (lopende zaken) — bedragen zijn onvolledig en niet vergelijkbaar.',
+    home_kicker: 'Federale begroting · België',
+    home_q: 'Waar gaat jouw belastinggeld naartoe?',
+    home_lead: 'De federale overheid van België gaf in {year} ongeveer dit uit. Zie waar — en wat jouw deel is.',
+    home_perday: '= {v} per inwoner, elke dag',
+    hook_label: 'Wat verdien je bruto per jaar?',
+    hook_cta: 'Toon mijn bijdrage',
+    home_explore: 'Verken de begroting',
+    home_explore_sub: 'Treemap, thema’s en alle posten',
+    home_you: 'Jouw bijdrage',
+    home_you_sub: 'Zie hoe jouw belasting verdeeld wordt',
+    home_levels: 'Wie doet wat', home_levels_sub: 'Federaal, gewest, gemeenschap, gemeente',
+    levels_h: 'Wie doet wat', levels_sub: 'Vier overheidsniveaus innen belastingen en geven uit. Klik een niveau.',
+    lvl_taxes: 'Welke belastingen', lvl_spends: 'Waarvoor', lvl_funding: 'Financiering', back_levels: 'Alle niveaus',
+    stat_total: 'totale federale uitgaven', stat_capita: 'per inwoner / jaar', stat_day: 'per inwoner / dag',
+    budget_h: 'De begroting', budget_sub: 'Klik op een thema voor uitleg, of zoom in de treemap.',
+    tm_h: 'In één oogopslag', tm_sub: 'Elk blok = een uitgavenpost. Klik om in te zoomen.',
+    cats_h: 'Thema’s', show_data: 'Toon als tabel (toegankelijk)',
+    dt_h: 'Alle posten', dl_json: 'Download JSON', dl_csv: 'Download CSV',
+    th_function: 'Thema', th_amount: 'Bedrag', th_share: 'Aandeel',
+    you_h: 'Jouw bijdrage',
+    you_sub: 'Geef je bruto jaarinkomen in. We schatten je personenbelasting en tonen hoe dat bedrag verdeeld zou worden in dezelfde verhoudingen als de begroting. Het is een illustratie — niet je exacte aanslag.',
+    db_label: 'Bruto jaarinkomen',
+    bylevel_h: 'Jouw belasting per niveau', bylevel_sub: 'Kies je gemeente om je belasting te verdelen over federaal, gewest en gemeente.',
+    pick_commune: 'Jouw gemeente', lvl_federal: 'Federaal', lvl_regional: 'Gewest', lvl_communal: 'Gemeente',
+    communities_note: 'De gemeenschappen (onderwijs, cultuur) hebben geen eigen belasting — ze worden uit federaal geld betaald. Schatting; gewestelijk aandeel ~25% van de personenbelasting.',
+    commune_notfound: 'Gemeente niet in de lijst (aanslagjaar 2024, 581 gemeenten; fusies van 2025 kunnen ontbreken). Gemeentelijk aandeel = 0; federaal en gewest blijven gelden.',
+    db_disclaimer: 'Schatting. Enkel de federale personenbelasting (zonder gemeentebelasting), vereenvoudigd (alleenstaande, geen aftrekposten), illustratief.',
+    extras_h: 'Andere belastingen', extras_sub: 'Je betaalt ook indirecte belastingen. Vul je uitgaven en verbruik in — wij berekenen de belasting.',
+    tax_vat: 'BTW op dagelijkse uitgaven', tax_insurance: 'Verzekeringen', tax_energy: 'Energie (gas + elektriciteit)', tax_fuel: 'Brandstof', tax_alcohol: 'Alcohol', tax_tobacco: 'Sigaretten',
+    info_more: 'Meer info',
+    unit_vat: '€/maand', unit_insurance: '€/maand', unit_energy: '€/maand', unit_fuel: 'liter/maand', unit_alcohol: '€/maand', unit_tobacco: 'pakjes/maand',
+    ex_info_vat: 'Standaard btw is 21%. Vul je dagelijkse uitgaven in (huur en energie uitgesloten; voeding lager belast) — bovengrens.',
+    ex_info_insurance: 'Taks op verzekeringspremies: 9,25%. Vul je maandpremies in (auto, woning, enz.).',
+    ex_info_energy: 'Je maandelijkse energiefactuur. ~8% is federale belasting (6% btw + heffingen); distributiekosten zijn gewestelijk.',
+    ex_info_fuel: 'Aantal liter brandstof per maand. ~€0,90 belasting per liter (accijns + btw).',
+    ex_info_alcohol: 'Je maandbudget voor alcohol. ~35% ervan is belasting (accijns + btw).',
+    ex_info_tobacco: 'Aantal pakjes per maand. Pakje van €13, ~78% is belasting.',
+    total_contribution: 'Totale bijdrage', of_which_income: 'inkomstenbelasting', of_which_indirect: 'indirecte belastingen',
+    extras_note: 'Schattingen: btw 21% op uitgaven, verzekeringstaks 9,25%, ~8% federale belasting op je energiefactuur, pakje sigaretten €13 (~78%), ~€0,90 per liter brandstof, ~35% van je alcoholbudget.',
+    tax_est: 'Geschatte personenbelasting', your_split: 'verdeeld over de begroting:',
+    per_year: '/jaar', per_day: '/dag', billion: 'mld', million: 'mln',
+    back_all: 'Alle thema’s', of_total: 'van de begroting', per_capita: 'per inwoner',
+    cat_covers: 'Wat dit dekt', cat_depts: 'Waar dit naartoe gaat', cat_your: 'Jouw bijdrage hieraan',
+    cat_your_note: 'Op basis van je inkomen en geschatte andere belastingen. Wijzig bij ‘Jij’.',
+    prev_cat: 'Vorige', next_cat: 'Volgende', to_you: 'Bereken jouw deel',
+    about_h: 'Over deze app', read_caveats: 'Goed om te weten',
+    sources_h: 'Databronnen', sources_sub: 'Alle data komt van officiële open-databronnen. Links openen in een nieuw tabblad.',
+    cv_health: 'Gezondheid lijkt klein (1,1%) omdat de ziekteverzekering via de sociale zekerheid loopt — die zit in “Sociale bescherming”.',
+    cv_financing: 'Financieringsverrichtingen (schuldaflossing en financiële operaties) zijn uitgesloten; enkel de rente telt mee als kost.',
+    cv_year: 'Enkel 2023 en 2024 zijn volledige jaren in de open data. 2025 is voorlopig.',
+    cv_estimate: 'De “jouw bijdrage”-berekening is illustratief: magnitudes schalen met je inkomen, de verhoudingen zijn voor iedereen gelijk.',
+    foot_src: 'Bron: data.gov.be — Federale begroting (FPS BOSA), licentie CC0. Bevolking: Statbel.',
+    foot_meta: 'Open data · gegenereerd uit de officiële begroting · geen persoonsgegevens · iconen: Lucide (ISC).',
+    other: 'Andere',
+  },
+  fr: {
+    skip: 'Aller au contenu', title: 'Où va l’argent de mes impôts ?',
+    nav_home: 'Accueil', nav_budget: 'Budget', nav_compare: 'Comparer', nav_you: 'Vous', nav_about: 'Infos',
+    compare_h: 'Comparer les années', compare_sub: 'Évolution par thème entre deux années.',
+    compare_from: 'De', compare_to: 'À', compare_total: 'Dépenses totales',
+    compare_caveat: '⚠️ De grands écarts peuvent venir de reclassements entre administrations, pas de la politique. Comparez avec prudence.',
+    compare_unreliable: '⚠️ Une année provisoire (2025) est incomplète — la comparaison n’est pas fiable.',
+    provisional_badge: 'provisoire',
+    provisional_banner: '⚠️ 2025 est un budget provisoire (affaires courantes) — montants incomplets et non comparables.',
+    home_kicker: 'Budget fédéral · Belgique',
+    home_q: 'Où va l’argent de vos impôts ?',
+    home_lead: 'L’État fédéral belge a dépensé environ ceci en {year}. Voyez où — et quelle est votre part.',
+    home_perday: '= {v} par habitant, chaque jour',
+    hook_label: 'Quel est votre revenu annuel brut ?',
+    hook_cta: 'Voir ma contribution',
+    home_explore: 'Explorer le budget',
+    home_explore_sub: 'Treemap, thèmes et tous les postes',
+    home_you: 'Votre contribution',
+    home_you_sub: 'Voyez comment votre impôt est réparti',
+    home_levels: 'Qui fait quoi', home_levels_sub: 'Fédéral, région, communauté, commune',
+    levels_h: 'Qui fait quoi', levels_sub: 'Quatre niveaux de pouvoir prélèvent des impôts et dépensent. Cliquez un niveau.',
+    lvl_taxes: 'Quels impôts', lvl_spends: 'Pour quoi', lvl_funding: 'Financement', back_levels: 'Tous les niveaux',
+    stat_total: 'dépenses fédérales totales', stat_capita: 'par habitant / an', stat_day: 'par habitant / jour',
+    budget_h: 'Le budget', budget_sub: 'Cliquez un thème pour l’explication, ou zoomez dans la treemap.',
+    tm_h: 'En un coup d’œil', tm_sub: 'Chaque bloc = un poste. Cliquez pour zoomer.',
+    cats_h: 'Thèmes', show_data: 'Afficher en tableau (accessible)',
+    dt_h: 'Tous les postes', dl_json: 'Télécharger JSON', dl_csv: 'Télécharger CSV',
+    th_function: 'Thème', th_amount: 'Montant', th_share: 'Part',
+    you_h: 'Votre contribution',
+    you_sub: 'Indiquez votre revenu annuel brut. Nous estimons votre impôt et montrons comment ce montant se répartirait selon les mêmes proportions que le budget. C’est une illustration — pas votre calcul exact.',
+    db_label: 'Revenu annuel brut',
+    bylevel_h: 'Vos impôts par niveau', bylevel_sub: 'Choisissez votre commune pour répartir vos impôts entre fédéral, région et commune.',
+    pick_commune: 'Votre commune', lvl_federal: 'Fédéral', lvl_regional: 'Région', lvl_communal: 'Commune',
+    communities_note: 'Les communautés (enseignement, culture) n’ont pas d’impôt propre — financées par l’argent fédéral. Estimation ; part régionale ~25 % de l’IPP.',
+    commune_notfound: 'Commune absente de la liste (exercice 2024, 581 communes ; les fusions de 2025 peuvent manquer). Part communale = 0 ; fédéral et région restent valables.',
+    db_disclaimer: 'Estimation. Impôt fédéral des personnes physiques uniquement (hors taxe communale), simplifié (isolé, sans déductions), illustratif.',
+    extras_h: 'Autres impôts', extras_sub: 'Vous payez aussi des impôts indirects. Indiquez vos dépenses et votre consommation — nous calculons la taxe.',
+    tax_vat: 'TVA sur dépenses courantes', tax_insurance: 'Assurances', tax_energy: 'Énergie (gaz + électricité)', tax_fuel: 'Carburant', tax_alcohol: 'Alcool', tax_tobacco: 'Cigarettes',
+    info_more: 'Plus d’infos',
+    unit_vat: '€/mois', unit_insurance: '€/mois', unit_energy: '€/mois', unit_fuel: 'litres/mois', unit_alcohol: '€/mois', unit_tobacco: 'paquets/mois',
+    ex_info_vat: 'La TVA standard est de 21 %. Indiquez vos dépenses courantes (hors loyer et énergie ; alimentation taxée moins) — estimation haute.',
+    ex_info_insurance: 'Taxe sur les primes d’assurance : 9,25 %. Indiquez vos primes mensuelles (auto, habitation, etc.).',
+    ex_info_energy: 'Votre facture d’énergie mensuelle. ~8 % de taxes fédérales (TVA 6 % + prélèvements) ; la distribution est régionale.',
+    ex_info_fuel: 'Litres de carburant par mois. ~0,90 € de taxe par litre (accises + TVA).',
+    ex_info_alcohol: 'Votre budget alcool mensuel. ~35 % sont des taxes (accises + TVA).',
+    ex_info_tobacco: 'Paquets par mois. Paquet à 13 €, ~78 % de taxes.',
+    total_contribution: 'Contribution totale', of_which_income: 'impôt sur le revenu', of_which_indirect: 'impôts indirects',
+    extras_note: 'Estimations : TVA 21 % sur les dépenses, taxe d’assurance 9,25 %, ~8 % de taxes fédérales sur l’énergie, paquet 13 € (~78 %), ~0,90 € par litre, ~35 % du budget alcool.',
+    tax_est: 'Impôt estimé', your_split: 'réparti selon le budget :',
+    per_year: '/an', per_day: '/jour', billion: 'mrd', million: 'mio',
+    back_all: 'Tous les thèmes', of_total: 'du budget', per_capita: 'par habitant',
+    cat_covers: 'Ce que ça couvre', cat_depts: 'Où va cet argent', cat_your: 'Votre contribution à ceci',
+    cat_your_note: 'Sur base de votre revenu et des autres impôts estimés. Modifiable dans ‘Vous’.',
+    prev_cat: 'Précédent', next_cat: 'Suivant', to_you: 'Calculer ma part',
+    about_h: 'À propos', read_caveats: 'Bon à savoir',
+    sources_h: 'Sources de données', sources_sub: 'Toutes les données proviennent de sources ouvertes officielles. Les liens s’ouvrent dans un nouvel onglet.',
+    cv_health: 'La santé paraît faible (1,1 %) car l’assurance maladie passe par la sécurité sociale — incluse dans « Protection sociale ».',
+    cv_financing: 'Les opérations de financement (remboursement de la dette et opérations financières) sont exclues ; seuls les intérêts comptent comme coût.',
+    cv_year: 'Seules 2023 et 2024 sont des années complètes en open data. 2025 est provisoire.',
+    cv_estimate: 'Le calcul « votre contribution » est illustratif : les montants varient avec le revenu, les proportions sont identiques pour tous.',
+    foot_src: 'Source : data.gov.be — Budget fédéral (SPF BOSA), licence CC0. Population : Statbel.',
+    foot_meta: 'Open data · généré à partir du budget officiel · aucune donnée personnelle · icônes : Lucide (ISC).',
+    other: 'Autres',
+  },
+  en: {
+    skip: 'Skip to content', title: 'Where do my taxes go?',
+    nav_home: 'Home', nav_budget: 'Budget', nav_compare: 'Compare', nav_you: 'You', nav_about: 'About',
+    compare_h: 'Compare years', compare_sub: 'Change per theme between two years.',
+    compare_from: 'From', compare_to: 'To', compare_total: 'Total spending',
+    compare_caveat: '⚠️ Big shifts can come from reclassification between departments, not policy. Compare with care.',
+    compare_unreliable: '⚠️ A provisional year (2025) is incomplete — the comparison is not reliable.',
+    provisional_badge: 'provisional',
+    provisional_banner: '⚠️ 2025 is a provisional budget (caretaker government) — figures are incomplete and not comparable.',
+    home_kicker: 'Federal budget · Belgium',
+    home_q: 'Where do your taxes go?',
+    home_lead: 'Belgium’s federal government spent about this in {year}. See where — and what your share is.',
+    home_perday: '= {v} per resident, every day',
+    hook_label: 'What’s your gross annual income?',
+    hook_cta: 'Show my contribution',
+    home_explore: 'Explore the budget',
+    home_explore_sub: 'Treemap, themes and every line',
+    home_you: 'Your contribution',
+    home_you_sub: 'See how your tax is split',
+    home_levels: 'Who does what', home_levels_sub: 'Federal, region, community, commune',
+    levels_h: 'Who does what', levels_sub: 'Four levels of government tax and spend. Tap a level.',
+    lvl_taxes: 'Which taxes', lvl_spends: 'What it does', lvl_funding: 'Funding', back_levels: 'All levels',
+    stat_total: 'total federal spending', stat_capita: 'per resident / year', stat_day: 'per resident / day',
+    budget_h: 'The budget', budget_sub: 'Tap a theme for the explanation, or zoom into the treemap.',
+    tm_h: 'At a glance', tm_sub: 'Each block = a spending area. Click to zoom in.',
+    cats_h: 'Themes', show_data: 'Show as table (accessible)',
+    dt_h: 'All areas', dl_json: 'Download JSON', dl_csv: 'Download CSV',
+    th_function: 'Theme', th_amount: 'Amount', th_share: 'Share',
+    you_h: 'Your contribution',
+    you_sub: 'Enter your gross annual income. We estimate your personal income tax and show how that amount would split in the same proportions as the budget. It’s an illustration — not your exact assessment.',
+    db_label: 'Gross annual income',
+    bylevel_h: 'Your tax by level', bylevel_sub: 'Pick your commune to split your tax across federal, region and commune.',
+    pick_commune: 'Your commune', lvl_federal: 'Federal', lvl_regional: 'Region', lvl_communal: 'Commune',
+    communities_note: 'Communities (education, culture) have no own tax — funded from federal money. Estimate; regional share ~25% of income tax.',
+    commune_notfound: 'Commune not in the list (tax year 2024, 581 communes; 2025 mergers may be missing). Communal share = 0; federal and region still apply.',
+    db_disclaimer: 'Estimate. Federal income tax only (excl. municipal surcharge), simplified (single, no deductions), illustrative.',
+    extras_h: 'Other taxes', extras_sub: 'You also pay indirect taxes. Enter your spending and consumption — we work out the tax.',
+    tax_vat: 'VAT on everyday spending', tax_insurance: 'Insurance', tax_energy: 'Home energy (gas + electricity)', tax_fuel: 'Fuel', tax_alcohol: 'Alcohol', tax_tobacco: 'Cigarettes',
+    info_more: 'More info',
+    unit_vat: '€/month', unit_insurance: '€/month', unit_energy: '€/month', unit_fuel: 'liters/month', unit_alcohol: '€/month', unit_tobacco: 'packs/month',
+    ex_info_vat: 'Standard VAT is 21%. Enter your everyday spending (rent and energy excluded; food taxed less) — upper estimate.',
+    ex_info_insurance: 'Insurance premium tax: 9.25%. Enter your monthly premiums (car, home, etc.).',
+    ex_info_energy: 'Your monthly energy bill. ~8% is federal tax (6% VAT + levies); distribution costs are regional.',
+    ex_info_fuel: 'Litres of fuel per month. ~€0.90 tax per litre (excise + VAT).',
+    ex_info_alcohol: 'Your monthly alcohol budget. ~35% of it is tax (excise + VAT).',
+    ex_info_tobacco: 'Packs per month. €13 pack, ~78% is tax.',
+    total_contribution: 'Total contribution', of_which_income: 'income tax', of_which_indirect: 'indirect taxes',
+    extras_note: 'Estimates: VAT 21% on spending, insurance tax 9.25%, ~8% federal tax on your energy bill, cigarette pack €13 (~78% tax), ~€0.90 per litre of fuel, ~35% of your alcohol budget.',
+    tax_est: 'Estimated income tax', your_split: 'split across the budget:',
+    per_year: '/year', per_day: '/day', billion: 'bn', million: 'm',
+    back_all: 'All themes', of_total: 'of the budget', per_capita: 'per resident',
+    cat_covers: 'What it covers', cat_depts: 'Where it goes', cat_your: 'Your contribution to this',
+    cat_your_note: 'Based on your income and estimated other taxes. Change it under ‘You’.',
+    prev_cat: 'Previous', next_cat: 'Next', to_you: 'Work out your share',
+    about_h: 'About', read_caveats: 'Worth knowing',
+    sources_h: 'Data sources', sources_sub: 'All data comes from official open-data sources. Links open in a new tab.',
+    cv_health: 'Health looks small (1.1%) because health insurance runs through social security — counted under “Social protection”.',
+    cv_financing: 'Financing operations (debt rollover and financial transactions) are excluded; only interest counts as a cost.',
+    cv_year: 'Only 2023 and 2024 are full years in the open data. 2025 is provisional.',
+    cv_estimate: 'The “your contribution” figure is illustrative: amounts scale with income, the proportions are the same for everyone.',
+    foot_src: 'Source: data.gov.be — Federal budget (FPS BOSA), licence CC0. Population: Statbel.',
+    foot_meta: 'Open data · generated from the official budget · no personal data · icons: Lucide (ISC).',
+    other: 'Other',
+  },
+};
+const LOCALE = { nl: 'nl-BE', fr: 'fr-BE', en: 'en-IE' };
+
+// ---------- state ----------
+const store = {
+  get(k, d) { try { return JSON.parse(localStorage.getItem('wtg_' + k)) ?? d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem('wtg_' + k, JSON.stringify(v)); } catch {} },
+};
+let DATA = {};                                   // {year: json}
+let lang = store.get('lang', 'nl');
+let year = store.get('year', 2024);
+let income = store.get('income', 45000);
+// indirect taxes — defaults = avg €/resident from FPS Finance 2025 receipts (VAT €3,251, excise €946 split est.)
+// All indirect taxes are computed from the user's real monthly spending/consumption.
+// VAT default €1,290/mo expenses × 21% ≈ €3,251/yr = the real per-resident VAT average.
+const EXTRA_DEF = { vat: { on: true, qty: 1290 }, insurance: { on: false, qty: 0 }, energy: { on: false, qty: 0 }, fuel: { on: false, qty: 0 }, alcohol: { on: false, qty: 0 }, tobacco: { on: false, qty: 0 } };
+let extras = (() => { const s = store.get('extras', {}) || {}; const o = {}; for (const k in EXTRA_DEF) o[k] = { ...EXTRA_DEF[k], ...(typeof s[k] === 'object' ? s[k] : {}) }; return o; })();
+let cmpA = store.get('cmpA', 2023), cmpB = store.get('cmpB', 2024);
+let commune = store.get('commune', '');
+let COMMUNES = {};                               // {communeName: additional PIT %} — loaded at boot
+const AUTONOMY_FACTOR = 0.25;                     // ≈ share of PIT regionalised (6th State Reform), estimate
+let tmPath = [];                                 // treemap drill path (budget view)
+let sortKey = 'amount', sortDir = -1;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ---------- helpers ----------
+const $ = s => document.querySelector(s);
+const t = k => (I18N[lang][k] ?? k);
+const fill = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k] ?? '');
+const cur = () => DATA[year];
+const labelOf = n => n.label[lang] || n.label.en || n.label.fr || n.label.nl;
+// department line items are raw ALL-CAPS admin names → title-case for display
+const ACR = new Set(['SPF', 'FOD', 'EU', 'UE', 'ICT', 'OIP', 'ION', 'BOSA', 'R&D', 'RIZIV', 'INAMI', 'F35', 'II', 'III', 'IV', 'V', 'VI']);
+const SMALL = new Set(['en', 'et', 'de', 'der', 'des', 'la', 'le', 'du', 'aux', 'à', '&']);
+const deptLabel = n => (n.label[lang] || n.label.fr || n.label.nl).toLowerCase().split(/\s+/)
+  .map((w, i) => ACR.has(w.toUpperCase()) ? w.toUpperCase() : (i > 0 && SMALL.has(w)) ? w : w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+const fmtCur = (eur, dp = 0) => new Intl.NumberFormat(LOCALE[lang], { style: 'currency', currency: 'EUR', maximumFractionDigits: dp, minimumFractionDigits: dp }).format(eur);
+function fmtBig(eur) {
+  const nf = new Intl.NumberFormat(LOCALE[lang], { maximumFractionDigits: 1 });
+  if (Math.abs(eur) >= 1e9) return '€' + nf.format(eur / 1e9) + ' ' + t('billion');
+  if (Math.abs(eur) >= 1e6) return '€' + nf.format(eur / 1e6) + ' ' + t('million');
+  return fmtCur(eur);
+}
+const pct = (v, tot) => new Intl.NumberFormat(LOCALE[lang], { maximumFractionDigits: 1 }).format(v / tot * 100) + '%';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function estimateTax(g) {
+  const B = [[0, 15820, .25], [15820, 27920, .40], [27920, 48320, .45], [48320, Infinity, .50]];
+  let tax = 0; for (const [lo, hi, r] of B) if (g > lo) tax += (Math.min(g, hi) - lo) * r;
+  return Math.max(0, tax - 2540);
+}
+// Belgian tax assumptions (estimates): tax per unit of MONTHLY spending/consumption.
+const TOBACCO_PACK = 13, TOBACCO_TAXFRAC = 0.78;   // €13 pack, ~78% tax
+// €tax per: € spent (vat 21% standard, alcohol 35% blend) / litre fuel / cigarette pack.
+// insurance = 9.25% premium tax (federal); energy ≈ 8% federal tax of bill (6% VAT + federal levies; distribution is regional)
+const RATE = { vat: 0.21, insurance: 0.0925, energy: 0.08, fuel: 0.90, alcohol: 0.35, tobacco: TOBACCO_PACK * TOBACCO_TAXFRAC };
+const EXTRAS = [
+  ['vat', 'tax_vat', { unit: 'unit_vat', step: 50 }],
+  ['insurance', 'tax_insurance', { unit: 'unit_insurance', step: 10 }],
+  ['energy', 'tax_energy', { unit: 'unit_energy', step: 10 }],
+  ['fuel', 'tax_fuel', { unit: 'unit_fuel', step: 5 }],
+  ['alcohol', 'tax_alcohol', { unit: 'unit_alcohol', step: 5 }],
+  ['tobacco', 'tax_tobacco', { unit: 'unit_tobacco', step: 1 }],
+];
+function itemTax(k) { const e = extras[k]; return e.on ? (e.qty || 0) * 12 * RATE[k] : 0; }
+const extrasTotal = () => EXTRAS.reduce((s, [k]) => s + itemTax(k), 0);
+const userTax = () => estimateTax(income) + extrasTotal();
+const qtyOut = k => `≈ ${fmtCur(itemTax(k))} ${t('per_year')}`;
+const iconSvg = name => `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${ICONS[name] || ''}</svg>`;
+const fnIcon = id => iconSvg(FN_ICON[id] || 'ellipsis');
+const fnChip = (id, cls) => `<span class="chip ${cls}${LIGHT.has(id) ? ' ink-dark' : ''}" style="background:${FN_COLOR[id] || '#5f5f5f'}">${fnIcon(id)}</span>`;
+const levelChip = (id, cls = 'card-ic') => `<span class="chip ${cls}" style="background:${LEVELS[id].color}">${iconSvg(LEVELS[id].icon)}</span>`;
+const fnById = id => cur().tree.children.find(c => c.id === id);
+
+// ---------- treemap (squarified) ----------
+function squarify(items, x, y, w, h) {
+  const total = items.reduce((s, d) => s + d.value, 0);
+  if (total <= 0 || w <= 0 || h <= 0) return [];
+  const scale = (w * h) / total;
+  let rest = items.filter(d => d.value > 0).map(d => ({ ref: d, area: d.value * scale }));
+  let rect = { x, y, w, h }; const out = [];
+  const worst = (row, side) => { const sum = row.reduce((s, r) => s + r.area, 0), mx = Math.max(...row.map(r => r.area)), mn = Math.min(...row.map(r => r.area)), s2 = sum * sum; return Math.max((side * side * mx) / s2, s2 / (side * side * mn)); };
+  while (rest.length) {
+    const side = Math.min(rect.w, rect.h); let row = [rest[0]], i = 1;
+    while (i < rest.length && worst(row, side) >= worst(row.concat(rest[i]), side)) { row.push(rest[i]); i++; }
+    const ra = row.reduce((s, r) => s + r.area, 0);
+    if (rect.w >= rect.h) { const cw = ra / rect.h; let yy = rect.y; for (const r of row) { const ch = r.area / cw; out.push({ ref: r.ref, x: rect.x, y: yy, w: cw, h: ch }); yy += ch; } rect = { x: rect.x + cw, y: rect.y, w: rect.w - cw, h: rect.h }; }
+    else { const rh = ra / rect.w; let xx = rect.x; for (const r of row) { const cw = r.area / rh; out.push({ ref: r.ref, x: xx, y: rect.y, w: cw, h: rh }); xx += cw; } rect = { x: rect.x, y: rect.y + rh, w: rect.w, h: rect.h - rh }; }
+    rest = rest.slice(row.length);
+  }
+  return out;
+}
+const MAX_CELLS = 12;
+function aggregateKids(kids) {
+  if (kids.length <= MAX_CELLS) return kids;
+  const top = kids.slice(0, MAX_CELLS - 1), rest = kids.slice(MAX_CELLS - 1);
+  return [...top, { label: { nl: `${t('other')} (${rest.length})`, fr: `${t('other')} (${rest.length})`, en: `${t('other')} (${rest.length})` }, amount: rest.reduce((s, k) => s + k.amount, 0), _other: true }];
+}
+const rgbHex = h => { const n = parseInt(h.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; };
+const relLum = ([r, g, b]) => { const s = [r, g, b].map(v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }); return .2126 * s[0] + .7152 * s[1] + .0722 * s[2]; };
+const mixWhite = (rgb, f) => rgb.map(c => Math.round(c + (255 - c) * f));
+const pickDarkInk = rgb => { const L = relLum(rgb); return (1.05 / (L + .05)) < ((L + .05) / 0.0685); };
+function cellStyle(i, count, isRoot, id) {
+  if (isRoot) { const hex = FN_COLOR[id] || '#5f5f5f'; return { bg: hex, dark: LIGHT.has(id) }; }
+  const f = count > 1 ? (i / (count - 1)) * 0.45 : 0; const rgb = mixWhite(rgbHex(FN_COLOR[id] || '#5f5f5f'), f);
+  return { bg: `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`, dark: pickDarkInk(rgb) };
+}
+function renderTreemap() {
+  const el = $('#treemap'); if (!el) return; el.innerHTML = '';
+  const node = tmPath.length ? tmPath[tmPath.length - 1] : cur().tree;
+  const isRoot = tmPath.length === 0;
+  const kids = aggregateKids((node.children || []).slice().sort((a, b) => b.amount - a.amount));
+  const rect = el.getBoundingClientRect(); const W = Math.max(rect.width, 280), H = Math.max(rect.height, 320);
+  const cells = squarify(kids.map(k => ({ value: k.amount, node: k })), 0, 0, W, H);
+  const topId = isRoot ? null : tmPath[0].id;
+  cells.forEach((c, i) => {
+    const k = c.ref.node;
+    const drillRoot = isRoot && !k._other;            // root cell → go to category detail
+    const drillDept = !isRoot && !!(k.children && k.children.length); // (none at dept level)
+    const { bg, dark } = cellStyle(i, cells.length, isRoot, isRoot ? k.id : topId);
+    const interactive = drillRoot || drillDept;
+    const div = document.createElement(interactive ? 'button' : 'div');
+    div.className = 'tm-cell' + (dark ? ' ink-dark' : '') + (interactive ? '' : ' is-leaf');
+    div.style.cssText = `left:${c.x}px;top:${c.y}px;width:${c.w}px;height:${c.h}px;background:${bg}`;
+    if (c.w > 54 && c.h > 30) {
+      const showIc = isRoot && !k._other && c.w > 78 && c.h > 70;
+      div.innerHTML = `${showIc ? `<span class="tm-ic">${fnIcon(k.id)}</span>` : ''}<span class="tm-name">${esc(labelOf(k))}</span><span class="tm-val">${fmtBig(k.amount)}</span>`;
+    }
+    div.title = `${labelOf(k)} — ${fmtBig(k.amount)} (${pct(k.amount, node.amount)})`;
+    if (drillRoot) { div.setAttribute('aria-label', `${labelOf(k)}, ${fmtBig(k.amount)}`); div.onclick = () => navigate(`#/category/${k.id}`); }
+    el.appendChild(div);
+  });
+  const tbl = $('#treemap-table');
+  if (tbl) { const tot = node.amount; tbl.innerHTML = `<table><thead><tr><th>${t('th_function')}</th><th class="num">${t('th_amount')}</th><th class="num">${t('th_share')}</th></tr></thead><tbody>${(node.children || []).slice().sort((a, b) => b.amount - a.amount).map(k => `<tr><td>${esc(labelOf(k))}</td><td class="num">${fmtBig(k.amount)}</td><td class="num">${pct(k.amount, tot)}</td></tr>`).join('')}</tbody></table>`; }
+}
+
+// ---------- count-up ----------
+function countUp(el, to) {
+  if (reduce) { el.textContent = fmtBig(to); return; }
+  const dur = 900, t0 = performance.now();
+  const step = now => { const p = Math.min(1, (now - t0) / dur); el.textContent = fmtBig(to * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+
+// ---------- views ----------
+function viewHome() {
+  const tot = cur().tree.amount, day = tot / POPULATION / 365;
+  return `<section class="screen home">
+    <p class="kicker">${t('home_kicker')} · ${year}${cur().provisional ? ` · <span class="badge">${t('provisional_badge')}</span>` : ''}</p>
+    <h1 class="home-q">${t('home_q')}</h1>
+    <p class="home-big" id="home-big" aria-label="${fmtBig(tot)}">${fmtBig(tot)}</p>
+    <p class="home-perday">${fill(t('home_perday'), { v: fmtCur(day, 2) })}</p>
+    <p class="home-lead">${fill(t('home_lead'), { year })}</p>
+    ${provBannerHtml()}
+    <form class="hook" id="hook">
+      <label for="hook-inc">${t('hook_label')}</label>
+      <div class="hook-row">
+        <input id="hook-inc" type="number" inputmode="numeric" min="0" max="500000" step="1000" value="${income}" aria-label="${t('hook_label')}">
+        <button type="submit" class="btn-primary">${t('hook_cta')} ${iconSvg('hand-coins')}</button>
+      </div>
+    </form>
+    <div class="entry">
+      <a class="entry-card" href="#/budget"><span class="entry-ic">${iconSvg('layout-grid')}</span><span><b>${t('home_explore')}</b><small>${t('home_explore_sub')}</small></span></a>
+      <a class="entry-card" href="#/you"><span class="entry-ic">${iconSvg('users')}</span><span><b>${t('home_you')}</b><small>${t('home_you_sub')}</small></span></a>
+      <a class="entry-card" href="#/levels"><span class="entry-ic">${iconSvg('landmark')}</span><span><b>${t('home_levels')}</b><small>${t('home_levels_sub')}</small></span></a>
+    </div>
+  </section>`;
+}
+
+function viewBudget() {
+  const tot = cur().tree.amount;
+  const cards = cur().tree.children.slice().sort((a, b) => b.amount - a.amount).map(fn => {
+    const day = fn.amount / POPULATION / 365;
+    return `<a class="cat-card" href="#/category/${fn.id}">
+      ${fnChip(fn.id, 'card-ic')}
+      <span class="cat-meta"><b>${esc(labelOf(fn))}</b><small>${fmtBig(fn.amount)} · ${pct(fn.amount, tot)}</small></span>
+      <span class="cat-day">${fmtCur(day, 2)}<small>${t('per_day')}</small></span>
+    </a>`;
+  }).join('');
+  return `<section class="screen">
+    <header class="screen-head"><h1>${t('budget_h')}</h1><p class="sub">${t('budget_sub')}</p></header>
+    ${provBannerHtml()}
+    <div class="card">
+      <div class="card-head"><div class="h-row"><span class="h-ic">${iconSvg('layout-grid')}</span><h2>${t('tm_h')}</h2></div></div>
+      <p class="sub">${t('tm_sub')}</p>
+      <nav class="breadcrumb" id="breadcrumb"></nav>
+      <div id="treemap" class="treemap" role="group" aria-label="${t('tm_h')}"></div>
+      <details class="data-fallback"><summary>${t('show_data')}</summary><div id="treemap-table"></div></details>
+    </div>
+    <div class="card-head"><div class="h-row"><span class="h-ic">${iconSvg('table-2')}</span><h2>${t('cats_h')}</h2></div></div>
+    <div class="cat-grid">${cards}</div>
+    <details class="card data-fallback"><summary>${t('dt_h')}</summary>
+      <div class="downloads"><button type="button" id="dl-json">${t('dl_json')}</button><button type="button" id="dl-csv">${t('dl_csv')}</button></div>
+      <div class="table-scroll"><table id="data-table"><thead><tr>
+        <th data-sort="label" aria-sort="none"><button type="button">${t('th_function')}</button></th>
+        <th data-sort="amount" aria-sort="descending" class="num"><button type="button">${t('th_amount')}</button></th>
+        <th data-sort="share" aria-sort="none" class="num"><button type="button">${t('th_share')}</button></th>
+      </tr></thead><tbody></tbody></table></div>
+    </details>
+  </section>`;
+}
+
+function viewCategory(id) {
+  const fn = fnById(id); if (!fn) return viewBudget();
+  const tot = cur().tree.amount, c = CONTENT[id] || {};
+  const order = cur().tree.children.slice().sort((a, b) => b.amount - a.amount);
+  const idx = order.findIndex(x => x.id === id);
+  const prev = order[(idx - 1 + order.length) % order.length], next = order[(idx + 1) % order.length];
+  const day = fn.amount / POPULATION / 365, capita = fn.amount / POPULATION;
+  const yr = userTax() * (fn.amount / tot);
+  const kids = (fn.children || []).slice().sort((a, b) => b.amount - a.amount);
+  const depts = kids.slice(0, 8).map(d => `<li><span>${esc(deptLabel(d))}</span><b>${fmtBig(d.amount)} <small>${pct(d.amount, fn.amount)}</small></b></li>`).join('');
+  const covers = (c.covers?.[lang] || []).map(x => `<li>${esc(x)}</li>`).join('');
+  return `<section class="screen cat-detail">
+    <nav class="breadcrumb"><a href="#/budget">${t('back_all')}</a><span class="sep">›</span><span class="cur">${esc(labelOf(fn))}</span></nav>
+    <header class="cat-hero" style="--cat:${FN_COLOR[id]}">
+      ${fnChip(id, 'cat-hero-ic')}
+      <h1>${esc(labelOf(fn))}</h1>
+      ${c.blurb?.[lang] ? `<p class="cat-blurb">${esc(c.blurb[lang])}</p>` : ''}
+    </header>
+    <div class="cat-stats">
+      <div class="stat"><span class="stat-num">${fmtBig(fn.amount)}</span><span class="stat-lbl">${pct(fn.amount, tot)} ${t('of_total')}</span></div>
+      <div class="stat"><span class="stat-num">${fmtCur(capita)}</span><span class="stat-lbl">${t('per_capita')} / ${t('per_year').replace('/', '')}</span></div>
+      <div class="stat"><span class="stat-num">${fmtCur(day, 2)}</span><span class="stat-lbl">${t('per_capita')} / ${t('per_day').replace('/', '')}</span></div>
+    </div>
+    ${covers ? `<div class="card"><div class="h-row"><span class="h-ic">${iconSvg('info')}</span><h2>${t('cat_covers')}</h2></div><ul class="covers">${covers}</ul>${c.note?.[lang] ? `<p class="cat-note">${esc(c.note[lang])}</p>` : ''}</div>` : ''}
+    ${kids.length > 1 ? `<div class="card"><div class="h-row"><span class="h-ic">${iconSvg('table-2')}</span><h2>${t('cat_depts')}</h2></div><ul class="dept-list">${depts}</ul></div>` : ''}
+    <div class="card your-card">
+      <div class="h-row"><span class="h-ic">${iconSvg('hand-coins')}</span><h2>${t('cat_your')}</h2></div>
+      <p class="your-amt"><b>${fmtCur(yr)}</b> ${t('per_year')} · ${fmtCur(yr / 365, 2)} ${t('per_day')}</p>
+      <p class="sub">${fill(t('cat_your_note'), { inc: fmtCur(income) })} · <a href="#/you">${t('to_you')}</a></p>
+    </div>
+    <nav class="cat-nav">
+      <a class="btn" href="#/category/${prev.id}">‹ ${esc(labelOf(prev))}</a>
+      <a class="btn" href="#/category/${next.id}">${esc(labelOf(next))} ›</a>
+    </nav>
+  </section>`;
+}
+
+function extraRow(k, lblKey, opt) {
+  const e = extras[k];
+  const head = `<span class="extra-head"><label class="extra-tog"><input type="checkbox" data-ex="${k}" ${e.on ? 'checked' : ''}><span>${t(lblKey)}</span></label><button type="button" class="info-btn" data-info="${k}" aria-expanded="false" aria-controls="exinfo-${k}" aria-label="${t('info_more')}">${iconSvg('info')}</button></span>`;
+  const ctrl = `<span class="extra-ctrl"><span class="qty-in"><input type="number" inputmode="numeric" class="extra-qty" data-ex="${k}" min="0" step="${opt.step}" value="${e.qty}" aria-label="${t(lblKey)} — ${t(opt.unit)}" ${e.on ? '' : 'disabled'}><span class="unit">${t(opt.unit)}</span></span><output class="extra-out" data-out="${k}">${qtyOut(k)}</output></span>`;
+  return `<div class="extra-item"><div class="extra-row">${head}${ctrl}</div><p class="extra-info" id="exinfo-${k}" hidden>${t('ex_info_' + k)}</p></div>`;
+}
+function viewYou() {
+  return `<section class="screen">
+    <header class="screen-head"><h1>${t('you_h')}</h1><p class="sub">${t('you_sub')}</p></header>
+    ${provBannerHtml()}
+    <div class="card">
+      <label class="db-label" for="income">${t('db_label')}</label>
+      <div class="db-input"><input type="range" id="income" min="0" max="120000" step="1000" value="${income}" aria-describedby="income-out"><output id="income-out" for="income">${fmtCur(income)}</output></div>
+      <p class="db-disclaimer">${t('db_disclaimer')}</p>
+    </div>
+    <div class="card">
+      <div class="h-row"><span class="h-ic">${iconSvg('coins')}</span><h2>${t('extras_h')}</h2></div>
+      <p class="sub">${t('extras_sub')}</p>
+      <div class="extras">${EXTRAS.map(([k, lbl, opt]) => extraRow(k, lbl, opt)).join('')}</div>
+      <p class="db-disclaimer">${t('extras_note')}</p>
+    </div>
+    <div class="card">
+      <p class="db-tax" id="db-tax"></p>
+      <div id="db-breakdown" class="db-breakdown" role="list"></div>
+    </div>
+    <div class="card">
+      <div class="h-row"><span class="h-ic">${iconSvg('landmark')}</span><h2>${t('bylevel_h')}</h2></div>
+      <p class="sub">${t('bylevel_sub')}</p>
+      <label class="db-label" for="commune">${t('pick_commune')}</label>
+      <input class="commune-in" id="commune" list="communes" value="${esc(commune)}" placeholder="${t('pick_commune')}" autocomplete="off">
+      <datalist id="communes">${Object.keys(COMMUNES).sort().map(c => `<option value="${esc(c)}"></option>`).join('')}</datalist>
+      <div id="bylevel"></div>
+    </div>
+  </section>`;
+}
+
+function viewAbout() {
+  const li = k => `<li>${t(k)}</li>`;
+  return `<section class="screen">
+    <header class="screen-head"><h1>${t('about_h')}</h1></header>
+    <div class="card"><div class="h-row"><span class="h-ic">${iconSvg('info')}</span><h2>${t('read_caveats')}</h2></div>
+      <ul class="covers">${li('cv_health')}${li('cv_financing')}${li('cv_estimate')}${li('cv_year')}</ul></div>
+    <div class="card about-src"><p>${t('foot_src')}</p><p class="foot-meta">${t('foot_meta')}</p>
+      <p><a href="#/sources">${t('sources_h')} ›</a></p></div>
+  </section>`;
+}
+function viewSources() {
+  return `<section class="screen">
+    <header class="screen-head"><h1>${t('sources_h')}</h1><p class="sub">${t('sources_sub')}</p></header>
+    <div class="src-list">${SOURCES.map(s => `<a class="src-card" href="${s.url}" target="_blank" rel="noopener noreferrer"><span class="src-meta"><b>${esc(s.name)} ↗</b><small>${esc(s.desc[lang])}</small></span><span class="src-lic">${esc(s.lic)}</span></a>`).join('')}</div>
+  </section>`;
+}
+
+function provBannerHtml() {
+  return cur().provisional ? `<p class="provbanner" role="note">${t('provisional_banner')}</p>` : '';
+}
+
+function viewLevels() {
+  const cards = LEVEL_IDS.map(id => {
+    const L = LEVELS[id];
+    return `<a class="cat-card level-card" href="#/level/${id}">${levelChip(id)}<span class="cat-meta"><b>${esc(L.label[lang])}</b><small>${esc(L.blurb[lang])}</small></span></a>`;
+  }).join('');
+  return `<section class="screen">
+    <header class="screen-head"><h1>${t('levels_h')}</h1><p class="sub">${t('levels_sub')}</p></header>
+    <div class="cat-grid">${cards}</div>
+  </section>`;
+}
+function viewLevel(id) {
+  const L = LEVELS[id]; if (!L) return viewLevels();
+  const list = arr => arr.map(x => `<li>${esc(x)}</li>`).join('');
+  const idx = LEVEL_IDS.indexOf(id), prev = LEVELS[LEVEL_IDS[(idx + 3) % 4]], next = LEVELS[LEVEL_IDS[(idx + 1) % 4]];
+  return `<section class="screen cat-detail">
+    <nav class="breadcrumb"><a href="#/levels">${t('back_levels')}</a><span class="sep">›</span><span class="cur">${esc(L.label[lang])}</span></nav>
+    <header class="cat-hero" style="--cat:${L.color}">${levelChip(id, 'cat-hero-ic')}<h1>${esc(L.label[lang])}</h1><p class="cat-blurb">${esc(L.blurb[lang])}</p></header>
+    <div class="card"><div class="h-row"><span class="h-ic">${iconSvg('banknote')}</span><h2>${t('lvl_taxes')}</h2></div><ul class="covers${L.noTax ? ' covers-none' : ''}">${list(L.taxes[lang])}</ul></div>
+    <div class="card"><div class="h-row"><span class="h-ic">${iconSvg('layout-grid')}</span><h2>${t('lvl_spends')}</h2></div><ul class="covers">${list(L.spends[lang])}</ul></div>
+    <div class="card"><div class="h-row"><span class="h-ic">${iconSvg('info')}</span><h2>${t('lvl_funding')}</h2></div><p class="cat-note">${esc(L.funding[lang])}</p></div>
+    <nav class="cat-nav"><a class="btn" href="#/level/${LEVEL_IDS[(idx + 3) % 4]}">‹ ${esc(prev.label[lang])}</a><a class="btn" href="#/level/${LEVEL_IDS[(idx + 1) % 4]}">${esc(next.label[lang])} ›</a></nav>
+  </section>`;
+}
+
+const nf1 = n => new Intl.NumberFormat(LOCALE[lang], { maximumFractionDigits: 1 }).format(n);
+const dCls = d => d > 0 ? 'up' : d < 0 ? 'down' : 'flat';
+function deltaStr(d, p) {
+  const arrow = d > 0 ? '▲' : d < 0 ? '▼' : '=';
+  const pstr = p == null ? '—' : (d > 0 ? '+' : '') + nf1(p) + '%';
+  const astr = (d > 0 ? '+' : d < 0 ? '−' : '') + fmtBig(Math.abs(d));
+  return `${arrow} ${pstr} <small>${astr}</small>`;
+}
+function yearBtns(sel) {
+  return YEARS.map(y => `<button type="button" data-y="${y}" aria-pressed="${y === sel}">${y}${DATA[y]?.provisional ? `<span class="seg-badge">*</span>` : ''}</button>`).join('');
+}
+function viewCompare() {
+  const a = DATA[cmpA], b = DATA[cmpB];
+  const rows = b.tree.children.map(fn => {
+    const av = a.tree.children.find(x => x.id === fn.id)?.amount || 0, bv = fn.amount, d = bv - av;
+    return { id: fn.id, name: labelOf(fn), av, bv, d, p: av > 0 ? d / av * 100 : null };
+  }).sort((x, y) => Math.abs(y.d) - Math.abs(x.d));
+  const ta = a.tree.amount, tb = b.tree.amount, td = tb - ta, tp = ta > 0 ? td / ta * 100 : null;
+  const prov = a.provisional || b.provisional;
+  return `<section class="screen">
+    <header class="screen-head"><h1>${t('compare_h')}</h1><p class="sub">${t('compare_sub')}</p></header>
+    <div class="card cmp-pick">
+      <div class="cmp-pick-row"><span>${t('compare_from')}</span><div class="yearseg" id="cmpA">${yearBtns(cmpA)}</div></div>
+      <div class="cmp-pick-row"><span>${t('compare_to')}</span><div class="yearseg" id="cmpB">${yearBtns(cmpB)}</div></div>
+    </div>
+    ${prov ? `<p class="provbanner" role="note">${t('compare_unreliable')}</p>` : ''}
+    <p class="provbanner" role="note">${t('compare_caveat')}</p>
+    <div class="card cmp-total"><span>${t('compare_total')}</span><b>${fmtBig(ta)} → ${fmtBig(tb)}</b><span class="cmp-delta ${dCls(td)}">${deltaStr(td, tp)}</span></div>
+    <div class="cmp-list">${rows.map(r => `<a class="cmp-row" href="#/category/${r.id}">${fnChip(r.id, 'db-ic')}<span class="cmp-name"><b>${esc(r.name)}</b><small>${fmtBig(r.av)} → ${fmtBig(r.bv)}</small></span><span class="cmp-delta ${dCls(r.d)}">${deltaStr(r.d, r.p)}</span></a>`).join('')}</div>
+  </section>`;
+}
+function mountCompare() {
+  // update in place + keep keyboard focus on the chosen button (no route re-announce)
+  const wire = (sel, assign) => $(sel)?.querySelectorAll('button').forEach(btn => btn.onclick = () => {
+    assign(+btn.dataset.y); $('#view').innerHTML = viewCompare(); mountCompare();
+    $(`${sel} button[data-y="${btn.dataset.y}"]`)?.focus();
+  });
+  wire('#cmpA', v => { cmpA = v; store.set('cmpA', v); });
+  wire('#cmpB', v => { cmpB = v; store.set('cmpB', v); });
+}
+
+// ---------- mounts (post-insert wiring) ----------
+function mountBudget() {
+  tmPath = []; renderBreadcrumb(); renderTreemap(); renderTable();
+  $('#dl-json')?.addEventListener('click', () => download(`federal-${year}.json`, JSON.stringify(cur(), null, 2), 'application/json'));
+  $('#dl-csv')?.addEventListener('click', () => {
+    const tot = cur().tree.amount;
+    const csv = ['function_id,label_en,amount_eur,share_pct', ...cur().tree.children.map(f => `${f.id},${csvCell(f.label.en)},${f.amount},${(f.amount / tot * 100).toFixed(2)}`)].join('\n');
+    download(`federal-${year}.csv`, csv, 'text/csv');
+  });
+  document.querySelectorAll('#data-table th').forEach(th => th.querySelector('button').addEventListener('click', () => { const k = th.dataset.sort; if (k === sortKey) sortDir *= -1; else { sortKey = k; sortDir = k === 'label' ? 1 : -1; } renderTable(); }));
+  let raf; const ro = new ResizeObserver(() => { cancelAnimationFrame(raf); raf = requestAnimationFrame(renderTreemap); }); ro.observe($('#treemap'));
+}
+function renderBreadcrumb() {
+  const bc = $('#breadcrumb'); if (!bc) return; bc.innerHTML = '';
+  const mk = (txt, fn) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = txt; b.onclick = fn; return b; };
+  bc.appendChild(mk(t('back_all'), () => { tmPath = []; renderBreadcrumb(); renderTreemap(); }));
+  tmPath.forEach((n, i) => { const s = document.createElement('span'); s.className = 'sep'; s.textContent = '›'; bc.appendChild(s); const last = i === tmPath.length - 1; if (last) { const c = document.createElement('span'); c.className = 'cur'; c.textContent = labelOf(n); bc.appendChild(c); } else bc.appendChild(mk(labelOf(n), () => { tmPath = tmPath.slice(0, i + 1); renderBreadcrumb(); renderTreemap(); })); });
+}
+function renderTable() {
+  const tb = $('#data-table tbody'); if (!tb) return; const tot = cur().tree.amount;
+  const rows = cur().tree.children.map(fn => ({ id: fn.id, label: labelOf(fn), amount: fn.amount, share: fn.amount / tot }));
+  rows.sort((a, b) => sortKey === 'label' ? a.label.localeCompare(b.label, LOCALE[lang]) * sortDir : (a[sortKey] - b[sortKey]) * sortDir);
+  tb.innerHTML = rows.map(r => `<tr><td><a class="td-lbl" href="#/category/${r.id}">${fnChip(r.id, 'cell-ic')}${esc(r.label)}</a></td><td class="num">${fmtBig(r.amount)}</td><td class="num">${pct(r.amount, tot)}</td></tr>`).join('');
+  document.querySelectorAll('#data-table th').forEach(th => th.setAttribute('aria-sort', th.dataset.sort === sortKey ? (sortDir < 0 ? 'descending' : 'ascending') : 'none'));
+}
+function mountYou() {
+  const inp = $('#income');
+  inp.addEventListener('input', () => { income = +inp.value; store.set('income', income); $('#income-out').textContent = fmtCur(income); renderBreakdown(); });
+  document.querySelectorAll('.extra-qty').forEach(q => q.addEventListener('input', () => {
+    extras[q.dataset.ex].qty = Math.max(0, +q.value || 0); store.set('extras', extras);
+    document.querySelector(`.extra-out[data-out="${q.dataset.ex}"]`).textContent = qtyOut(q.dataset.ex); renderBreakdown();
+  }));
+  document.querySelectorAll('input[type=checkbox][data-ex]').forEach(c => c.addEventListener('change', () => {
+    const k = c.dataset.ex; extras[k].on = c.checked; store.set('extras', extras);
+    const ctrl = document.querySelector(`.extra-qty[data-ex="${k}"]`); if (ctrl) ctrl.disabled = !c.checked;
+    document.querySelector(`.extra-out[data-out="${k}"]`).textContent = qtyOut(k);
+    renderBreakdown();
+  }));
+  document.querySelectorAll('.info-btn').forEach(b => b.addEventListener('click', () => {
+    const p = document.getElementById('exinfo-' + b.dataset.info), open = p.hasAttribute('hidden');
+    p.toggleAttribute('hidden', !open); b.setAttribute('aria-expanded', String(open));
+  }));
+  const cm = $('#commune'); if (cm) cm.addEventListener('input', () => { commune = cm.value.trim(); store.set('commune', commune); renderByLevel(); });
+  renderBreakdown();
+}
+function renderBreakdown() {
+  const tot = cur().tree.amount, inc = estimateTax(income), ex = extrasTotal(), tax = inc + ex;
+  $('#db-tax').innerHTML = `${t('total_contribution')}: <strong>${fmtCur(tax)}</strong> <small>(${t('of_which_income')} ${fmtCur(inc)} + ${t('of_which_indirect')} ${fmtCur(ex)})</small> — ${t('your_split')}`;
+  const box = $('#db-breakdown'); box.innerHTML = '';
+  cur().tree.children.slice().sort((a, b) => b.amount - a.amount).forEach(fn => {
+    const share = fn.amount / tot, yr = tax * share;
+    const row = document.createElement('a'); row.className = 'db-row'; row.href = `#/category/${fn.id}`; row.setAttribute('role', 'listitem');
+    row.innerHTML = `${fnChip(fn.id, 'db-ic')}<span class="db-name"><b>${esc(labelOf(fn))}</b><span class="db-bar"><i style="width:${(share * 100).toFixed(1)}%;background:${FN_COLOR[fn.id]}"></i></span></span><span class="db-val">${fmtCur(yr)} <small>${t('per_year')}</small> · ${fmtCur(yr / 365, 2)} <small>${t('per_day')}</small></span>`;
+    box.appendChild(row);
+  });
+  renderByLevel();
+}
+function byLevel() {
+  const inc = estimateTax(income), ex = extrasTotal();
+  const pctC = (commune && COMMUNES[commune]) || 0;
+  const communal = inc * pctC / 100, regional = inc * AUTONOMY_FACTOR, federal = inc * (1 - AUTONOMY_FACTOR) + ex;
+  return { federal, regional, communal, total: federal + regional + communal };
+}
+function renderByLevel() {
+  const el = $('#bylevel'); if (!el) return;
+  const L = byLevel(), tot = L.total || 1;
+  const seg = [['lvl_federal', L.federal, '#c8102e'], ['lvl_regional', L.regional, '#1d3461'], ['lvl_communal', L.communal, '#007068']];
+  const notfound = commune && !(commune in COMMUNES) ? `<p class="provbanner" role="note">${t('commune_notfound')}</p>` : '';
+  el.innerHTML = `${notfound}<div class="lvlbar" role="img" aria-label="${seg.map(([k, v]) => `${t(k)} ${pct(v, tot)}`).join(', ')}">${seg.map(([k, v, c]) => `<span style="width:${(v / tot * 100).toFixed(1)}%;background:${c}"></span>`).join('')}</div>
+    <ul class="lvl-legend">${seg.map(([k, v, c]) => `<li><span class="sw" style="background:${c}"></span>${t(k)}<b>${fmtCur(v)}</b><small>${pct(v, tot)}</small></li>`).join('')}</ul>
+    <p class="db-disclaimer">${t('communities_note')}</p>`;
+}
+function mountHome() {
+  countUp($('#home-big'), cur().tree.amount);
+  $('#hook').addEventListener('submit', e => { e.preventDefault(); income = Math.max(0, +$('#hook-inc').value || 0); store.set('income', income); navigate('#/you'); });
+}
+
+// ---------- downloads ----------
+function download(name, text, type) { const url = URL.createObjectURL(new Blob([text], { type })); const a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000); }
+const csvCell = s => '"' + String(s).replace(/"/g, '""') + '"';
+
+// ---------- router ----------
+const ROUTES = { '': { fn: viewHome, mount: mountHome, key: 'nav_home' }, budget: { fn: viewBudget, mount: mountBudget, key: 'nav_budget' }, category: { fn: viewCategory, mount: () => {}, key: 'nav_budget' }, levels: { fn: viewLevels, mount: () => {}, key: 'nav_home' }, level: { fn: viewLevel, mount: () => {}, key: 'nav_home' }, compare: { fn: viewCompare, mount: mountCompare, key: 'nav_compare' }, you: { fn: viewYou, mount: mountYou, key: 'nav_you' }, about: { fn: viewAbout, mount: () => {}, key: 'nav_about' }, sources: { fn: viewSources, mount: () => {}, key: 'nav_about' } };
+function parseHash() { const h = location.hash.replace(/^#\/?/, '').split('/'); return { view: h[0] || '', id: h[1] || '' }; }
+function navigate(hash) { if (location.hash === hash) render(); else location.hash = hash; }
+function render() {
+  const run = () => {
+    const { view, id } = parseHash(); const r = ROUTES[view] || ROUTES[''];
+    const el = $('#view'); el.innerHTML = r.fn(id); r.mount(id);
+    const h1 = el.querySelector('h1');
+    document.title = (h1 ? h1.textContent + ' — ' : '') + t('title');
+    document.querySelectorAll('#tabbar a').forEach(a => a.setAttribute('aria-current', a.dataset.key === r.key ? 'page' : 'false'));
+    (h1 || el).setAttribute('tabindex', '-1'); (h1 || el).focus({ preventScroll: false });
+    $('#route-status').textContent = (h1?.textContent || '') + ' — ' + t('title');
+    window.scrollTo(0, 0);
+  };
+  if (document.startViewTransition && !reduce) document.startViewTransition(run); else run();
+}
+
+// ---------- chrome ----------
+function renderChrome() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  // year segmented control
+  $('#yearseg').innerHTML = YEARS.map(y => `<button type="button" data-year="${y}" aria-pressed="${y === year}">${y}${DATA[y]?.provisional ? `<span class="seg-badge" title="${t('provisional_badge')}">*</span>` : ''}</button>`).join('');
+  $('#yearseg').querySelectorAll('button').forEach(b => b.onclick = () => { year = +b.dataset.year; store.set('year', year); tmPath = []; renderChrome(); render(); });
+  // tabbar
+  $('#tabbar').innerHTML = [['', 'nav_home', 'house'], ['budget', 'nav_budget', 'layout-grid'], ['compare', 'nav_compare', 'arrow-left-right'], ['you', 'nav_you', 'hand-coins'], ['about', 'nav_about', 'info']]
+    .map(([v, k, ic]) => `<a href="#/${v}" data-key="${k}">${iconSvg(ICONS[ic] ? ic : 'info')}<span>${t(k)}</span></a>`).join('');
+}
+
+// ---------- boot ----------
+async function loadAll() {
+  if (globalThis.__DATA__) return globalThis.__DATA__;
+  const out = {}; await Promise.all(YEARS.map(async y => { out[y] = await (await fetch(`data/federal-${y}.json`)).json(); }));
+  return out;
+}
+async function boot() {
+  try { DATA = await loadAll(); if (!DATA[year]?.tree) year = 2024; if (!DATA[year]?.tree) throw 0; }
+  catch { document.querySelector('#view').innerHTML = `<p role="alert" class="card" style="border-color:var(--be-red)">⚠️ ${t('cv_year') || 'Data could not be loaded.'}</p>`; return; }
+  try { COMMUNES = globalThis.__COMMUNES__ || await (await fetch('data/communal-pit.json')).json(); } catch { COMMUNES = {}; }
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => { lang = b.dataset.lang; store.set('lang', lang); renderChrome(); render(); }));
+  $('#brand-home').addEventListener('click', () => navigate('#/'));
+  window.addEventListener('hashchange', render);
+  renderChrome();
+  render();
+}
+boot();
+</script>

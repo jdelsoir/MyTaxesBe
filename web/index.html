@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Waar gaat mijn belastinggeld naartoe? — België</title>
+  <meta name="description" content="Zie waar het Belgische federale belastinggeld naartoe gaat. Open data, federale begroting.">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <a class="skip-link" href="#view" data-i18n="skip">Naar inhoud</a>
+
+  <header class="appbar">
+    <div class="appbar-inner">
+      <button type="button" class="brand" id="brand-home" aria-label="Home">
+        <span class="flag" aria-hidden="true"></span>
+        <span class="brand-title" data-i18n="title">Waar gaat mijn belastinggeld naartoe?</span>
+      </button>
+      <div class="appbar-tools">
+        <div class="yearseg" role="group" aria-label="Jaar / Année / Year" id="yearseg"></div>
+        <nav class="lang" aria-label="Taal / Langue / Language">
+          <button type="button" data-lang="nl" aria-pressed="true">NL</button>
+          <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </nav>
+      </div>
+    </div>
+    <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
+  </header>
+
+  <nav class="tabbar" id="tabbar" aria-label="Hoofdnavigatie"></nav>
+
+  <main id="view" tabindex="-1"></main>
+
+  <p id="route-status" class="sr-only" aria-live="polite"></p>
+
+  <script src="icons.js"></script>
+  <script src="content.js"></script>
+  <script src="levels.js"></script>
+  <script src="app.js" type="module"></script>
+</body>
+</html>

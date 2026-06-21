@@ -1,0 +1,77 @@
+{
+  "_about": "Maps the Belgian federal budget (FPS BOSA eBudget Expenses XLSX) to ~12 citizen-friendly functions. Source schema verified 2026-06-20 across budget years 2024 (INI+C2) and 2025. Amounts are in THOUSANDS of euros (kEUR). Editorial choices are flagged with _note.",
+
+  "source": {
+    "publisher": "FPS BOSA DG Budget & Management Control",
+    "dataset": "data.gov.be fpsbosa-bb-budget-YYYY",
+    "license": "CC0",
+    "sheet": "BudgetOnline",
+    "headerDetect": "row whose first cell === 'Year'",
+    "amountColumn": "CL/VeK",
+    "amountMeaning": "Crédit de liquidation / Vereffeningskrediet = payment (cash-out) appropriation",
+    "alternativeAmountColumn": "CE/VK (commitment appropriation) — not used for 'where taxes go'",
+    "unit": "kEUR",
+    "deptCodeCol": "SPF",
+    "deptLabelCols": { "fr": "SPF/FOD FR", "nl": "SPF/FOD NL" },
+    "programLabelCols": { "fr": "PROG FR", "nl": "PROG NL" },
+    "economicClassCol": "SEC1"
+  },
+
+  "cycleRule": {
+    "_note": "Use a FULL voted cycle only. A provisional-twelfths / partial cycle (e.g. 2025 Cycle 7, total ~50B vs ~161B) badly understates spending. Reject any year whose total CL is implausibly low.",
+    "minPlausibleTotalKEUR": 90000000,
+    "preferCycle": ["INI", "latest full adjustment with RefDate inside the budget year"]
+  },
+
+  "excludeEconomicClasses": {
+    "_note": "SEC1 first digit. Class 9 = debt amortization/rollover (you re-borrow it; not a tax cost). Class 8 = financial transactions (loans to staff, securities, derivatives). Both are FINANCING, not spending — excluded so the citizen view shows where tax euros actually GO. Together ~38.7% of gross 2024. Interest (class 2) is kept as the real cost of debt.",
+    "classes": ["8", "9"]
+  },
+
+  "departments": {
+    "24": "social_protection",
+    "44": "social_protection",
+    "25": "health",
+    "51": "debt_interest",
+    "16": "defense",
+    "12": "justice",
+    "13": "security_interior",
+    "17": "security_interior",
+    "33": "mobility",
+    "18": "finance_admin",
+    "06": "finance_admin",
+    "19": "finance_admin",
+    "14": "foreign_eu",
+    "52": "foreign_eu",
+    "32": "economy_work_science",
+    "23": "economy_work_science",
+    "46": "economy_work_science",
+    "02": "democratic_institutions",
+    "07": "democratic_institutions"
+  },
+
+  "departmentOverrides": {
+    "01": {
+      "_note": "Dept 01 'Dotations' (~17B in 2024) is mostly transfers to Communities/Regions (Flemish 9.9B, French 5.0B, COCOM 1.6B, German-speaking 0.1B). The small remainder is monarchy, parliament and constitutional bodies. Route by program name.",
+      "byProgram": [
+        { "match": "Communaut|Commission communautaire|R[ée]gion|Gemeenschap|Gewest", "fn": "regions_communities" }
+      ],
+      "default": "democratic_institutions"
+    }
+  },
+
+  "functions": {
+    "social_protection":     { "nl": "Sociale bescherming",         "fr": "Protection sociale",            "en": "Social protection",           "depts": "24 Sécurité sociale + 44 Intégration sociale" },
+    "health":                { "nl": "Volksgezondheid",             "fr": "Santé publique",                "en": "Health",                      "depts": "25 Santé publique" },
+    "regions_communities":   { "nl": "Gewesten & Gemeenschappen",   "fr": "Régions & Communautés",         "en": "Regions & Communities",       "depts": "01 Dotations (transfers to federated entities)" },
+    "debt_interest":         { "nl": "Rente op de staatsschuld",    "fr": "Intérêts de la dette",          "en": "Debt interest",               "depts": "51 Dette publique (interest only; rollover excluded)" },
+    "defense":               { "nl": "Defensie",                    "fr": "Défense",                       "en": "Defence",                     "depts": "16 Défense nationale" },
+    "justice":               { "nl": "Justitie",                    "fr": "Justice",                       "en": "Justice",                     "depts": "12 Justice" },
+    "security_interior":     { "nl": "Veiligheid & Binnenland",     "fr": "Sécurité & Intérieur",          "en": "Security & Interior",         "depts": "13 Intérieur + 17 Police fédérale" },
+    "mobility":              { "nl": "Mobiliteit & Vervoer",        "fr": "Mobilité & Transports",         "en": "Mobility & Transport",        "depts": "33 Mobilité et transports" },
+    "finance_admin":         { "nl": "Financiën & Overheid",        "fr": "Finances & Administration",     "en": "Finance & Administration",    "depts": "18 Finances + 06 BOSA + 19 Régie des bâtiments" },
+    "foreign_eu":            { "nl": "Buitenland & EU",             "fr": "Affaires étrangères & UE",      "en": "Foreign Affairs & EU",        "depts": "14 Affaires étrangères & coopération + 52 Union européenne" },
+    "economy_work_science":  { "nl": "Economie, Werk & Wetenschap", "fr": "Économie, Emploi & Science",     "en": "Economy, Work & Science",     "depts": "32 Economie + 23 Emploi + 46 Politique scientifique" },
+    "democratic_institutions":{ "nl": "Democratische instellingen", "fr": "Institutions démocratiques",    "en": "Democratic Institutions",     "depts": "01 (monarchy/parliament/constitutional bodies) + 02 Chancellerie + 07 Organes indépendants" }
+  }
+}

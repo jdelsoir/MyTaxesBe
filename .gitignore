@@ -1,0 +1,11 @@
+# OS
+.DS_Store
+
+# Node
+node_modules/
+
+# Local Claude config (not for publishing)
+.claude/
+
+# Large downloaded raw data (pipeline/raw also has its own .gitignore)
+pipeline/raw/

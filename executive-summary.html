@@ -1,0 +1,365 @@
+<title>Where Do My Taxes Go — Belgium · Executive Summary</title>
+
+<style>
+  :root {
+    --ground: #FFFFFF;
+    --ink: #000000;
+    --orange: #FF7900;
+    --orange-dark: #C85A00;
+    --orange-deep: #8A3D00;
+    --orange-light: #FFC18A;
+    --line: #E4E4E4;
+    --muted: #6B6B6B;
+    --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  .page {
+    font-family: var(--font);
+    color: var(--ink);
+    background: var(--ground);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 28px;
+    border-bottom: 2px solid var(--ink);
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .logo {
+    width: 52px; height: 52px;
+    background: var(--orange);
+    display: flex; align-items: flex-end;
+    padding: 7px;
+    flex: 0 0 auto;
+  }
+  .logo span {
+    color: #fff; font-weight: 700; font-size: 0.82rem;
+    letter-spacing: -0.02em; line-height: 1;
+  }
+  .brand-text { font-size: 0.82rem; line-height: 1.3; }
+  .brand-text strong { display: block; font-weight: 700; }
+  .brand-text em { font-style: normal; color: var(--muted); }
+  .langs { display: flex; gap: 6px; flex: 0 0 auto; }
+  .langs span {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+    padding: 5px 9px; border: 1.5px solid var(--ink);
+  }
+  .langs span:first-child { background: var(--orange); border-color: var(--orange); color: #fff; }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 64px 0 56px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .eyebrow {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.22em; color: var(--orange-dark); margin: 0 0 22px;
+  }
+  .hero h1 {
+    font-size: clamp(3.1rem, 8.5vw, 6.6rem);
+    font-weight: 700; line-height: 0.9; letter-spacing: -0.045em;
+    margin: 0; text-transform: lowercase;
+  }
+  .hero h1 .ctry {
+    display: inline-block; color: var(--orange); margin-top: 0.08em;
+  }
+  .rule { width: 96px; height: 8px; background: var(--ink); margin: 30px 0 26px; }
+  .hero p {
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem); max-width: 30ch; margin: 0;
+    color: #1a1a1a;
+  }
+
+  /* ---------- treemap ---------- */
+  .tm-frame { width: 100%; }
+  .treemap {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 4px;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    background: var(--ink);
+    padding: 4px;
+  }
+  .tm {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 10px 11px; overflow: hidden;
+    transform-origin: center;
+  }
+  .tm b { font-size: 0.86rem; font-weight: 700; line-height: 1.1; }
+  .tm i { font-style: normal; font-size: 0.74rem; opacity: 0.9; }
+  .tm-cap { font-size: 0.72rem; color: var(--muted); margin: 12px 2px 0; }
+
+  /* animated reveal */
+  @media (prefers-reduced-motion: no-preference) {
+    .tm { opacity: 0; transform: scale(0.82); animation: pop 0.5s cubic-bezier(.2,.8,.25,1) forwards; }
+    .tm:nth-child(1){animation-delay:.05s}.tm:nth-child(2){animation-delay:.12s}
+    .tm:nth-child(3){animation-delay:.19s}.tm:nth-child(4){animation-delay:.26s}
+    .tm:nth-child(5){animation-delay:.33s}.tm:nth-child(6){animation-delay:.40s}
+    .tm:nth-child(7){animation-delay:.47s}
+    @keyframes pop { to { opacity: 1; transform: scale(1); } }
+  }
+
+  /* ---------- generic section ---------- */
+  .section { padding: 60px 0; border-top: 2px solid var(--ink); }
+  .sec-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.22em; color: var(--orange-dark); margin: 0 0 18px;
+  }
+  .sec-title {
+    font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 700;
+    letter-spacing: -0.03em; text-transform: lowercase; margin: 0 0 26px;
+    line-height: 1;
+  }
+  .lead { font-size: clamp(1.1rem, 1.7vw, 1.35rem); max-width: 60ch; margin: 0; }
+  .lead .hl { background: var(--orange); color: #fff; padding: 0 6px; font-weight: 700; }
+
+  /* ---------- steps ---------- */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 38px; }
+  .step { background: var(--ground); border: 2px solid var(--ink); padding: 26px 22px 30px; }
+  .step .num {
+    font-size: 2.4rem; font-weight: 700; color: var(--orange);
+    letter-spacing: -0.04em; line-height: 1; margin-bottom: 16px; display: block;
+  }
+  .step h3 { font-size: 1.18rem; font-weight: 700; margin: 0 0 8px; text-transform: lowercase; }
+  .step p { margin: 0; font-size: 0.98rem; color: #1a1a1a; }
+
+  /* ---------- feature callout ---------- */
+  .feature {
+    margin-top: 40px; display: grid; grid-template-columns: 10px 1fr;
+    gap: 24px; align-items: start;
+  }
+  .feature-bar { background: var(--orange); width: 10px; height: 100%; }
+  .feature h3 { font-size: 1.5rem; font-weight: 700; margin: 0 0 10px; text-transform: lowercase; letter-spacing: -0.02em; }
+  .feature p { margin: 0; font-size: 1.12rem; max-width: 56ch; }
+
+  /* ---------- black panel: why it wins ---------- */
+  .panel { background: var(--ink); color: #fff; border-top: 2px solid var(--ink); }
+  .panel .sec-label { color: var(--orange); }
+  .panel .sec-title { color: #fff; }
+  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-top: 8px; }
+  .stat { padding: 28px 18px; border-top: 4px solid var(--orange); }
+  .stat .big {
+    font-size: clamp(2rem, 4.4vw, 3.4rem); font-weight: 700;
+    letter-spacing: -0.04em; line-height: 0.95; color: var(--orange);
+  }
+  .stat .lbl { font-size: 0.84rem; color: #cfcfcf; margin-top: 8px; }
+
+  /* ---------- plan timeline ---------- */
+  .plan { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin-top: 36px; }
+  .ph { border: 2px solid var(--ink); padding: 20px 16px; position: relative; }
+  .ph .pn { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; color: var(--orange-dark); text-transform: uppercase; }
+  .ph h4 { font-size: 1.02rem; font-weight: 700; margin: 10px 0 6px; text-transform: lowercase; line-height: 1.15; }
+  .ph p { margin: 0; font-size: 0.86rem; color: var(--muted); }
+  .ph.cur { background: var(--orange); border-color: var(--orange); }
+  .ph.cur .pn { color: #5a2a00; }
+  .ph.cur h4, .ph.cur p { color: #fff; }
+  .plan-note { font-size: 0.84rem; color: var(--muted); margin: 18px 2px 0; }
+
+  /* ---------- bottom line ---------- */
+  .bottom { background: var(--orange); color: #fff; border-top: 2px solid var(--ink); }
+  .bottom .sec-label { color: #4d2400; }
+  .bottom h2 {
+    font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 700;
+    letter-spacing: -0.035em; line-height: 1.02; text-transform: lowercase;
+    margin: 0 0 18px; max-width: 22ch;
+  }
+  .bottom p { font-size: 1.15rem; max-width: 60ch; margin: 0 0 26px; }
+  .verdict {
+    display: inline-block; background: var(--ink); color: #fff;
+    font-weight: 700; font-size: 1.05rem; padding: 14px 26px;
+    text-transform: lowercase; letter-spacing: -0.01em;
+  }
+
+  /* ---------- footer ---------- */
+  .foot { padding: 34px 0 50px; border-top: 2px solid var(--ink); font-size: 0.82rem; color: var(--muted); }
+  .foot .src { color: var(--ink); font-weight: 700; }
+  .foot p { margin: 0 0 6px; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .tm-frame { max-width: 460px; }
+    .steps { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .plan { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 520px) {
+    .stats { grid-template-columns: 1fr; }
+    .plan { grid-template-columns: 1fr; }
+    .langs { display: none; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"><span>orange</span></div>
+      <div class="brand-text">
+        <strong>Where Do My Taxes Go — Belgium</strong>
+        <em>Executive summary · Open-data product proposal</em>
+      </div>
+    </div>
+    <div class="langs"><span>NL</span><span>FR</span><span>EN</span></div>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">A budget every citizen can read</p>
+          <h1>where do my taxes go?<span class="ctry">belgium</span></h1>
+          <div class="rule"></div>
+          <p>The federal budget is already open data. We turn it into something an ordinary person can actually understand.</p>
+        </div>
+
+        <div class="tm-frame">
+          <div class="treemap" role="img" aria-label="Illustrative treemap of how the Belgian federal budget splits across functions: social protection is the largest share, followed by health, public services, debt interest, justice and police, defence, and mobility.">
+            <div class="tm" style="grid-column:1/7; grid-row:1/6; background:var(--orange); color:#fff;">
+              <b>Social protection</b><i>≈ 38%</i>
+            </div>
+            <div class="tm" style="grid-column:7/11; grid-row:1/4; background:var(--orange-dark); color:#fff;">
+              <b>Health</b><i>≈ 15%</i>
+            </div>
+            <div class="tm" style="grid-column:7/11; grid-row:4/6; background:var(--orange-light); color:#3a1a00;">
+              <b>Public services</b><i>≈ 10%</i>
+            </div>
+            <div class="tm" style="grid-column:1/4; grid-row:6/9; background:var(--ink); color:#fff;">
+              <b>Debt interest</b><i>≈ 11%</i>
+            </div>
+            <div class="tm" style="grid-column:4/7; grid-row:6/9; background:var(--orange-deep); color:#fff;">
+              <b>Justice &amp; police</b><i>≈ 9%</i>
+            </div>
+            <div class="tm" style="grid-column:7/9; grid-row:6/9; background:var(--orange); color:#fff;">
+              <b>Defence</b><i>≈ 8%</i>
+            </div>
+            <div class="tm" style="grid-column:9/11; grid-row:6/9; background:var(--orange-light); color:#3a1a00;">
+              <b>Mobility</b><i>≈ 9%</i>
+            </div>
+          </div>
+          <p class="tm-cap">Illustrative split — exact figures generated from the official budget at build time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <p class="sec-label">The opportunity</p>
+      <h2 class="sec-title">open data nobody can read</h2>
+      <p class="lead">Belgium publishes <span class="hl">30,800+ open datasets</span>. The federal budget is among them — fully open, free to reuse. But it ships as raw spreadsheets no citizen will ever open. No tool today lets an ordinary person see where their tax euro actually goes.</p>
+    </section>
+
+    <section class="section wrap">
+      <p class="sec-label">How it works</p>
+      <h2 class="sec-title">three moving parts</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="num">01</span>
+          <h3>open data in</h3>
+          <p>Official federal budget and tax-revenue files, pulled automatically from the government's own portals.</p>
+        </div>
+        <div class="step">
+          <span class="num">02</span>
+          <h3>one build step</h3>
+          <p>Converted to clean, ready-to-show data when the site is built. No servers, no database to run.</p>
+        </div>
+        <div class="step">
+          <span class="num">03</span>
+          <h3>live for everyone</h3>
+          <p>A fast, accessible website in three languages. Open it, pick your income, see your taxes.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature-bar" aria-hidden="true"></div>
+        <div>
+          <h3>the salary slider</h3>
+          <p>Enter your income and watch the entire federal budget rewritten as <strong>your</strong> contribution — per day. Abstract billions become personal, in one gesture.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="wrap section" style="border-top:none;">
+        <p class="sec-label">Why it wins</p>
+        <h2 class="sec-title">cheap, open, and built to last</h2>
+        <div class="stats">
+          <div class="stat"><div class="big">€0</div><div class="lbl">monthly running cost</div></div>
+          <div class="stat"><div class="big">~3 wk</div><div class="lbl">to a shipped MVP</div></div>
+          <div class="stat"><div class="big">3</div><div class="lbl">languages · NL FR EN</div></div>
+          <div class="stat"><div class="big">CC0</div><div class="lbl">open, reusable data</div></div>
+          <div class="stat"><div class="big">AA</div><div class="lbl">WCAG 2.1 accessible</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <p class="sec-label">The plan</p>
+      <h2 class="sec-title">five phases to launch</h2>
+      <div class="plan">
+        <div class="ph cur">
+          <div class="pn">Phase 1</div>
+          <h4>data pipeline</h4>
+          <p>Turn the spreadsheets into clean data.</p>
+        </div>
+        <div class="ph">
+          <div class="pn">Phase 2</div>
+          <h4>core views</h4>
+          <p>Treemap and salary slider.</p>
+        </div>
+        <div class="ph">
+          <div class="pn">Phase 3</div>
+          <h4>polish</h4>
+          <p>Accessibility and three languages.</p>
+        </div>
+        <div class="ph">
+          <div class="pn">Phase 4</div>
+          <h4>automate &amp; ship</h4>
+          <p>Auto-refresh, then launch.</p>
+        </div>
+        <div class="ph">
+          <div class="pn">Phase 5</div>
+          <h4>go local</h4>
+          <p>Add regional and city budgets.</p>
+        </div>
+      </div>
+      <p class="plan-note">Phases 1–4 deliver the public MVP in roughly three weeks of focused work.</p>
+    </section>
+
+    <section class="bottom">
+      <div class="wrap section" style="border-top:none;">
+        <p class="sec-label">The bottom line</p>
+        <h2>buildable now — and nothing like it exists</h2>
+        <p>The data is open and free. The architecture costs nothing to run and scales to millions. No tool today gives a Belgian citizen a plain answer to a question everyone asks.</p>
+        <span class="verdict">recommendation: green-light the MVP</span>
+      </div>
+    </section>
+
+    <footer class="foot wrap">
+      <p><span class="src">Built on open data:</span> data.gov.be · finance.belgium.be · Statbel · Open Data Wallonie-Bruxelles — licensed CC0 / CC BY 4.0.</p>
+      <p>Findings adversarially verified. Prepared 20 June 2026. Contains public aggregate data only — no personal information.</p>
+    </footer>
+  </main>
+
+</div>
