@@ -94,6 +94,9 @@ const I18N = {
     cv_estimate: 'De “jouw bijdrage”-berekening is illustratief: magnitudes schalen met je inkomen, de verhoudingen zijn voor iedereen gelijk.',
     foot_src: 'Bron: data.gov.be — Federale begroting (FPS BOSA), licentie CC0. Bevolking: Statbel.',
     foot_meta: 'Open data · gegenereerd uit de officiële begroting · geen persoonsgegevens · iconen: Lucide (ISC).',
+    note_ai: 'Deze app is gemaakt met behulp van AI op basis van openbare data. We verzamelen geen persoonsgegevens.',
+    note_calc: 'Dit is een eenvoudige rekenmodule — de cijfers zijn slechts een illustratie. Echte berekeningen zijn veel complexer en hangen af van de situatie van elke persoon in België. Voor echte cijfers, neem contact op met de',
+    fin_name: 'FOD Financiën', fin_url: 'https://finance.belgium.be/nl',
     other: 'Andere',
   },
   fr: {
@@ -158,6 +161,10 @@ const I18N = {
     cv_estimate: 'Le calcul « votre contribution » est illustratif : les montants varient avec le revenu, les proportions sont identiques pour tous.',
     foot_src: 'Source : data.gov.be — Budget fédéral (SPF BOSA), licence CC0. Population : Statbel.',
     foot_meta: 'Open data · généré à partir du budget officiel · aucune donnée personnelle · icônes : Lucide (ISC).',
+    note_ai: 'Cette application a été réalisée à l’aide de l’IA à partir de données publiques. Nous ne collectons aucune donnée personnelle.',
+    note_calc: 'Ceci est un simple calculateur — les chiffres ne sont qu’une illustration. Les calculs réels sont bien plus complexes et dépendent de la situation de chaque personne en Belgique. Pour des chiffres réels, contactez le',
+    fin_name: 'SPF Finances', fin_url: 'https://finance.belgium.be/fr',
+    note_thanks: 'Merci à Ben Patte Folle dont les recherches sur les finances publiques m’ont convaincu de l’utilité de cet outil.',
     other: 'Autres',
   },
   en: {
@@ -222,6 +229,9 @@ const I18N = {
     cv_estimate: 'The “your contribution” figure is illustrative: amounts scale with income, the proportions are the same for everyone.',
     foot_src: 'Source: data.gov.be — Federal budget (FPS BOSA), licence CC0. Population: Statbel.',
     foot_meta: 'Open data · generated from the official budget · no personal data · icons: Lucide (ISC).',
+    note_ai: 'This application was made using AI on public data. We don’t collect any of your personal data.',
+    note_calc: 'This is a simple calculator — the figures are only an illustration. Real calculations are far more complex and depend on each person’s situation in Belgium. For real figures, contact',
+    fin_name: 'FPS Finance', fin_url: 'https://finance.belgium.be/en',
     other: 'Other',
   },
 };
@@ -502,6 +512,11 @@ function viewAbout() {
   const li = k => `<li>${t(k)}</li>`;
   return `<section class="screen">
     <header class="screen-head"><h1>${t('about_h')}</h1></header>
+    <div class="card about-note" role="note">
+      <p>${t('note_ai')}</p>
+      <p>${t('note_calc')} <a href="${t('fin_url')}" target="_blank" rel="noopener noreferrer">${t('fin_name')} ↗</a>.</p>
+      ${lang === 'fr' ? `<p class="about-thanks">${t('note_thanks')}</p>` : ''}
+    </div>
     <div class="card"><div class="h-row"><span class="h-ic">${iconSvg('info')}</span><h2>${t('read_caveats')}</h2></div>
       <ul class="covers">${li('cv_health')}${li('cv_financing')}${li('cv_estimate')}${li('cv_year')}</ul></div>
     <div class="card about-src"><p>${t('foot_src')}</p><p class="foot-meta">${t('foot_meta')}</p>

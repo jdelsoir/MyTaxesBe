@@ -241,6 +241,10 @@ tbody tr:hover { background: #faf9f6; }
 /* ============ about ============ */
 .about-src { color: var(--muted); font-size: .88rem; }
 .foot-meta { margin-top: 6px; opacity: .85; }
+.about-note { border-left: 4px solid var(--be-gold); }
+.about-note p { margin: 0 0 10px; }
+.about-note p:last-child { margin-bottom: 0; }
+.about-thanks { font-style: italic; color: var(--muted); font-size: .95rem; }
 
 /* ============ view transitions ============ */
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .22s; }
